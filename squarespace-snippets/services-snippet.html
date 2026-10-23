@@ -1,0 +1,9 @@
+<!-- SUNSHINE HOMES — Services Page Squarespace Snippet -->
+<div id="sh-github-loader">Loading...</div>
+<script>
+(function() {
+  var GITHUB_URL = 'https://saifeem52-wq.github.io/sunshine-homes-website/pages/services.html';
+  var container = document.getElementById('sh-github-loader');
+  fetch(GITHUB_URL).then(function(r){return r.text();}).then(function(html){container.outerHTML=html;}).catch(function(){container.innerHTML='<p style="text-align:center;padding:2rem">Unable to load content.</p>';});
+})();
+</script>
