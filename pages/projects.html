@@ -1,35 +1,8 @@
-<!-- Sunshine Homes Limited — Our Projects Page -->
-<!-- Self-contained fragment: no <html>/<head>/<body> tags -->
-<!-- Scoped under #sh-projects, loaded via fetch() into Squarespace Code Block -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET & SCOPE ===== */
-#sh-projects *,
-#sh-projects *::before,
-#sh-projects *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-#sh-projects {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #183244;
-  background: #ffffff;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  width: 100vw;
-  max-width: none;
-  position: relative;
-  left: 50%;
-  margin-left: -50vw;
-}
-
-/* Break out of Squarespace Fluid Engine box & hide native Squarespace header/footer */
+/* Break out of Squarespace Fluid Engine box & hide native Squarespace header/footer automatically */
 body:has(#sh-projects) #header,
 body:has(#sh-projects) header.Header,
 body:has(#sh-projects) [data-test="header-section"],
@@ -44,1192 +17,277 @@ body:has(#sh-projects) .fe-block:has(#sh-projects) { display:block !important; w
 body:has(#sh-projects) .sqs-block-code:has(#sh-projects),
 body:has(#sh-projects) .sqs-block-code:has(#sh-projects) .sqs-block-content { padding:0 !important; height:auto !important; max-height:none !important; overflow:visible !important; }
 
-/* ===== VARIABLES ===== */
-#sh-projects {
-  --sh-navy: #122c3d;
-  --sh-navy-dark: #0c2130;
-  --sh-orange: #f38b49;
-  --sh-ink: #183244;
-  --sh-muted: #677983;
-  --sh-cream: #f6f4f0;
-  --sh-paper: #ffffff;
-  --sh-teal: #1a7a6e;
-  --sh-header-height: 96px;
-}
-
-/* ===== TOP BAR ===== */
-#sh-projects .sh-topbar {
-  background: var(--sh-navy-dark);
-  color: rgba(255,255,255,0.75);
-  font-size: 12px;
-  text-align: center;
-  padding: 7px 20px;
-  letter-spacing: 0.02em;
-}
-
-#sh-projects .sh-topbar a {
-  color: var(--sh-orange);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* ===== STICKY NAVBAR ===== */
-#sh-projects .sh-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background: var(--sh-navy);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.25);
-}
-
-#sh-projects .sh-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 60px;
-}
-
-#sh-projects .sh-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-#sh-projects .sh-logo-mark {
-  width: 36px;
-  height: 36px;
-  background: var(--sh-orange);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 16px;
-  color: #fff;
-  flex-shrink: 0;
-}
-
-#sh-projects .sh-logo-text {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-#sh-projects .sh-logo-text span {
-  display: block;
-  font-size: 10px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-#sh-projects .sh-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  list-style: none;
-}
-
-#sh-projects .sh-nav-links a {
-  color: rgba(255,255,255,0.82);
-  text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 500;
-  padding: 8px 14px;
-  border-radius: 4px;
-  transition: color 0.2s, background 0.2s;
-  letter-spacing: 0.01em;
-}
-
-#sh-projects .sh-nav-links a:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.08);
-}
-
-#sh-projects .sh-nav-links a.active {
-  color: var(--sh-orange);
-  font-weight: 600;
-}
-
-#sh-projects .sh-nav-cta {
-  background: var(--sh-orange) !important;
-  color: #fff !important;
-  border-radius: 3px !important;
-  padding: 9px 18px !important;
-  font-weight: 600 !important;
-}
-
-#sh-projects .sh-nav-cta:hover {
-  background: #e07a38 !important;
-  opacity: 1;
-}
-
-#sh-projects .sh-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-  border: none;
-  background: transparent;
-}
-
-#sh-projects .sh-hamburger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-#sh-projects .sh-hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-#sh-projects .sh-hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-#sh-projects .sh-hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Mobile menu */
-#sh-projects .sh-mobile-menu {
-  display: none;
-  flex-direction: column;
-  background: var(--sh-navy-dark);
-  padding: 12px 24px 20px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-#sh-projects .sh-mobile-menu.open {
-  display: flex;
-}
-
-#sh-projects .sh-mobile-menu a {
-  color: rgba(255,255,255,0.82);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  transition: color 0.2s;
-}
-
-#sh-projects .sh-mobile-menu a:hover,
-#sh-projects .sh-mobile-menu a.active {
-  color: var(--sh-orange);
-}
-
-#sh-projects .sh-mobile-menu a:last-child {
-  border-bottom: none;
-  margin-top: 10px;
-  background: var(--sh-orange);
-  color: #fff;
-  border-radius: 3px;
-  padding: 12px 18px;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* ===== SPACER ===== */
-#sh-projects .sh-header-spacer {
-  height: var(--sh-header-height);
-}
-
-/* ===== PAGE HERO ===== */
-#sh-projects .sh-hero {
-  background: var(--sh-navy);
-  padding: 64px 24px 72px;
-  position: relative;
-  overflow: hidden;
-}
-
-#sh-projects .sh-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  opacity: 0.5;
-}
-
-#sh-projects .sh-hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-#sh-projects .sh-breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.55);
-}
-
-#sh-projects .sh-breadcrumb a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-#sh-projects .sh-breadcrumb a:hover {
-  color: var(--sh-orange);
-}
-
-#sh-projects .sh-breadcrumb svg {
-  width: 14px;
-  height: 14px;
-  opacity: 0.5;
-}
-
-#sh-projects .sh-breadcrumb-current {
-  color: var(--sh-orange);
-  font-weight: 500;
-}
-
-#sh-projects .sh-hero-heading {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
-
-#sh-projects .sh-hero-heading span {
-  color: var(--sh-orange);
-}
-
-#sh-projects .sh-hero-tagline {
-  font-size: 18px;
-  color: rgba(255,255,255,0.68);
-  font-weight: 400;
-  max-width: 480px;
-}
-
-/* ===== FILTER + GRID SECTION ===== */
-#sh-projects .sh-projects-section {
-  background: var(--sh-paper);
-  padding: 60px 24px 80px;
-}
-
-#sh-projects .sh-projects-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Filter bar */
-#sh-projects .sh-filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 44px;
-  align-items: center;
-}
-
-#sh-projects .sh-filter-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--sh-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-right: 6px;
-  align-self: center;
-}
-
-#sh-projects .sh-filter-btn {
-  padding: 9px 20px;
-  border: 2px solid #e8e4df;
-  background: transparent;
-  color: var(--sh-ink);
-  font-family: 'Inter', sans-serif;
-  font-size: 13.5px;
-  font-weight: 600;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.01em;
-}
-
-#sh-projects .sh-filter-btn:hover {
-  border-color: var(--sh-orange);
-  color: var(--sh-orange);
-}
-
-#sh-projects .sh-filter-btn.active {
-  background: var(--sh-orange);
-  border-color: var(--sh-orange);
-  color: #fff;
-}
-
-/* Project grid */
-#sh-projects .sh-projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-/* Project card */
-#sh-projects .sh-card {
-  background: var(--sh-paper);
-  border-radius: 8px;
-  border: 1px solid #e8e4df;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(18,44,61,0.06);
-  transition: transform 0.25s, box-shadow 0.25s;
-  display: flex;
-  flex-direction: column;
-}
-
-#sh-projects .sh-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(18,44,61,0.13);
-}
-
-#sh-projects .sh-card.hidden {
-  display: none;
-}
-
-#sh-projects .sh-card-stripe {
-  height: 5px;
-  width: 100%;
-}
-
-#sh-projects .sh-card-stripe.new-build   { background: var(--sh-orange); }
-#sh-projects .sh-card-stripe.renovation  { background: var(--sh-navy); }
-#sh-projects .sh-card-stripe.property    { background: var(--sh-teal); }
-
-#sh-projects .sh-card-body {
-  padding: 24px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-#sh-projects .sh-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-#sh-projects .sh-card-title {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--sh-ink);
-  line-height: 1.3;
-}
-
-#sh-projects .sh-badge {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 3px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-#sh-projects .sh-badge.new-build   { background: rgba(243,139,73,0.12); color: #c8620f; }
-#sh-projects .sh-badge.renovation  { background: rgba(18,44,61,0.1);    color: var(--sh-navy); }
-#sh-projects .sh-badge.property    { background: rgba(26,122,110,0.12); color: var(--sh-teal); }
-
-#sh-projects .sh-card-desc {
-  font-size: 14px;
-  color: var(--sh-muted);
-  line-height: 1.65;
-  flex: 1;
-  margin-bottom: 18px;
-}
-
-#sh-projects .sh-card-footer {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-#sh-projects .sh-suburb-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--sh-muted);
-  background: var(--sh-cream);
-  padding: 4px 10px;
-  border-radius: 3px;
-}
-
-#sh-projects .sh-suburb-tag svg {
-  width: 11px;
-  height: 11px;
-  opacity: 0.7;
-}
-
-/* ===== STATS BAND ===== */
-#sh-projects .sh-stats {
-  background: var(--sh-navy);
-  padding: 64px 24px;
-}
-
-#sh-projects .sh-stats-inner {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  text-align: center;
-}
-
-#sh-projects .sh-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-#sh-projects .sh-stat-value {
-  font-size: 52px;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-#sh-projects .sh-stat-value .sh-stat-suffix {
-  color: var(--sh-orange);
-}
-
-#sh-projects .sh-stat-label {
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-#sh-projects .sh-stat-divider {
-  width: 32px;
-  height: 2px;
-  background: var(--sh-orange);
-  border-radius: 2px;
-  margin-top: 4px;
-}
-
-/* ===== DISCLAIMER ===== */
-#sh-projects .sh-disclaimer {
-  background: var(--sh-cream);
-  padding: 24px;
-  text-align: center;
-}
-
-#sh-projects .sh-disclaimer p {
-  font-size: 13px;
-  color: var(--sh-muted);
-  font-style: italic;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* ===== CTA STRIP ===== */
-#sh-projects .sh-cta {
-  background: var(--sh-orange);
-  padding: 64px 24px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-#sh-projects .sh-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 60%),
-              radial-gradient(circle at 80% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
-}
-
-#sh-projects .sh-cta-inner {
-  position: relative;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-#sh-projects .sh-cta h2 {
-  font-size: clamp(26px, 4vw, 40px);
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-#sh-projects .sh-cta p {
-  font-size: 17px;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 32px;
-  font-weight: 400;
-}
-
-#sh-projects .sh-btn-white {
-  display: inline-block;
-  background: #fff;
-  color: var(--sh-orange);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 15px 36px;
-  border-radius: 3px;
-  transition: background 0.2s, transform 0.2s;
-  letter-spacing: 0.01em;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-
-#sh-projects .sh-btn-white:hover {
-  background: var(--sh-cream);
-  transform: translateY(-2px);
-}
-
-/* ===== FOOTER ===== */
-#sh-projects .sh-footer {
-  background: var(--sh-navy-dark);
-  padding: 56px 24px 32px;
-  color: rgba(255,255,255,0.65);
-}
-
-#sh-projects .sh-footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#sh-projects .sh-footer-grid {
-  display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
-  gap: 40px;
-  margin-bottom: 48px;
-}
-
-#sh-projects .sh-footer-col h4 {
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-}
-
-#sh-projects .sh-footer-col p {
-  font-size: 13.5px;
-  line-height: 1.7;
-}
-
-#sh-projects .sh-footer-col ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-#sh-projects .sh-footer-col ul a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  font-size: 13.5px;
-  transition: color 0.2s;
-}
-
-#sh-projects .sh-footer-col ul a:hover {
-  color: var(--sh-orange);
-}
-
-#sh-projects .sh-footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-#sh-projects .sh-footer-logo-mark {
-  width: 34px;
-  height: 34px;
-  background: var(--sh-orange);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 15px;
-  color: #fff;
-  flex-shrink: 0;
-}
-
-#sh-projects .sh-footer-logo-text {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-#sh-projects .sh-footer-logo-text span {
-  display: block;
-  font-size: 10px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-#sh-projects .sh-footer-contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 13.5px;
-  margin-bottom: 8px;
-  color: rgba(255,255,255,0.6);
-}
-
-#sh-projects .sh-footer-contact-item svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-  margin-top: 2px;
-  opacity: 0.6;
-}
-
-#sh-projects .sh-footer-contact-item a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-#sh-projects .sh-footer-contact-item a:hover {
-  color: var(--sh-orange);
-}
-
-#sh-projects .sh-footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-#sh-projects .sh-footer-copy {
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.35);
-}
-
-#sh-projects .sh-footer-legal {
-  display: flex;
-  gap: 20px;
-}
-
-#sh-projects .sh-footer-legal a {
-  font-size: 12.5px;
-  color: rgba(255,255,255,0.35);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-#sh-projects .sh-footer-legal a:hover {
-  color: rgba(255,255,255,0.65);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  #sh-projects .sh-projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #sh-projects .sh-stats-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #sh-projects .sh-footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 680px) {
-  #sh-projects .sh-nav-links,
-  #sh-projects .sh-nav-cta-desktop {
-    display: none;
-  }
-  #sh-projects .sh-hamburger {
-    display: flex;
-  }
-  #sh-projects .sh-projects-grid {
-    grid-template-columns: 1fr;
-  }
-  #sh-projects .sh-stats-inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #sh-projects .sh-footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  #sh-projects .sh-footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  #sh-projects .sh-stat-value {
-    font-size: 40px;
-  }
-  #sh-projects .sh-hero {
-    padding: 44px 20px 52px;
-  }
-}
-
-@media (max-width: 420px) {
-  #sh-projects .sh-stats-inner {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-}
-
-/* Counter animation */
-#sh-projects .sh-stat-value[data-target] {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s, transform 0.5s;
-}
-#sh-projects .sh-stat-value.counted {
-  opacity: 1;
-  transform: translateY(0);
+#sh-projects { --sh-navy:#122c3d; --sh-navy-dark:#0c2130; --sh-blue:#294d62; --sh-orange:#f38b49; --sh-ink:#183244; --sh-muted:#677983; --sh-paper:#ffffff; --sh-cream:#f6f4f0; --sh-line:#e3e8e8; font-family:'Inter','Arial',sans-serif; font-size:16px; color:var(--sh-ink); background:var(--sh-paper); width:100vw; max-width:none; position:relative; left:50%; margin-left:-50vw; line-height:1.65; -webkit-font-smoothing:antialiased; }
+#sh-projects, #sh-projects * { box-sizing:border-box; }
+#sh-projects :is(h1,h2,h3,h4,p) { margin:0; color:inherit; }
+#sh-projects a { text-decoration:none; color:inherit; }
+#sh-projects button { cursor:pointer; font:inherit; }
+#sh-projects img { max-width:100%; display:block; }
+#sh-projects .sh-wrap { width:min(100% - 80px,1240px); margin-inline:auto; }
+#sh-projects .sh-eyebrow { display:inline-flex; align-items:center; gap:12px; text-transform:uppercase; letter-spacing:2.5px; font-size:11px; font-weight:800; color:var(--sh-orange); }
+#sh-projects .sh-eyebrow::before { content:""; width:28px; height:2px; background:currentColor; }
+#sh-projects .sh-title { font-size:clamp(34px,4.2vw,56px); font-weight:800; line-height:1.1; letter-spacing:-2px; }
+#sh-projects .sh-body { color:var(--sh-muted); line-height:1.85; font-size:16px; }
+#sh-projects .sh-btn { display:inline-flex; align-items:center; justify-content:center; gap:14px; padding:17px 25px; border:1px solid transparent; border-radius:3px; font-size:12px; line-height:1.2; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; transition:background .25s, transform .25s, color .25s, border-color .25s; text-align:center; min-height:54px; }
+#sh-projects .sh-btn:hover { transform:translateY(-2px); }
+#sh-projects .sh-btn--orange { background:var(--sh-orange); color:#172938; }
+#sh-projects .sh-btn--orange:hover { background:#ffac6d; }
+#sh-projects .sh-btn--dark { background:var(--sh-navy); color:#fff; }
+#sh-projects .sh-btn--dark:hover { background:#2e566a; }
+#sh-projects .sh-section { padding:96px 0; }
+
+/* SHARED HEADER */
+#sh-projects .sh-header { position:fixed; z-index:9998; top:0; left:0; right:0; box-shadow:0 10px 35px rgba(12,32,47,.08); }
+#sh-projects .sh-topbar { height:36px; background:var(--sh-navy-dark); color:#d8e2e7; font-size:11px; letter-spacing:.45px; }
+#sh-projects .sh-topbar .sh-wrap { height:100%; display:flex; align-items:center; justify-content:space-between; }
+#sh-projects .sh-topbar-right, #sh-projects .sh-topbar-left { display:flex; align-items:center; gap:24px; }
+#sh-projects .sh-navbar { height:86px; background:#fff; }
+#sh-projects .sh-navbar .sh-wrap { height:100%; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+#sh-projects .sh-logo { display:flex; gap:11px; align-items:center; flex:none; }
+#sh-projects .sh-logo svg { width:56px; height:54px; flex:none; }
+#sh-projects .sh-logo strong { display:block; color:var(--sh-navy); font-size:20px; line-height:1; letter-spacing:-.7px; font-weight:900; white-space:nowrap; }
+#sh-projects .sh-logo small { display:block; font-size:9px; color:#74818a; letter-spacing:2.6px; margin-top:8px; font-weight:700; white-space:nowrap; }
+#sh-projects .sh-navlinks { display:flex; align-items:center; gap:30px; margin-left:auto; }
+#sh-projects .sh-navlinks > a { font-size:13px; font-weight:700; letter-spacing:.2px; white-space:nowrap; position:relative; padding:7px 0; }
+#sh-projects .sh-navlinks > a.active { color:var(--sh-orange); }
+#sh-projects .sh-navlinks > a::after { content:""; position:absolute; left:0; bottom:-3px; width:0; height:2px; background:var(--sh-orange); transition:width .25s; }
+#sh-projects .sh-navlinks > a:hover::after, #sh-projects .sh-navlinks > a.active::after { width:100%; }
+#sh-projects .sh-header-cta { padding:14px 20px; min-height:46px; }
+#sh-projects .sh-menu-toggle { border:1px solid #e4e9eb; border-radius:4px; width:46px; height:46px; display:none; align-items:center; justify-content:center; background:#fff; color:var(--sh-navy); }
+#sh-projects .sh-menu-toggle svg { width:22px; height:22px; }
+#sh-projects .sh-spacer { height:122px; }
+
+/* PAGE HERO */
+#sh-projects .sh-page-hero { position:relative; isolation:isolate; background:var(--sh-navy-dark); color:#fff; padding:96px 0 88px; overflow:hidden; }
+#sh-projects .sh-page-hero::before { content:""; position:absolute; inset:0; background-image:linear-gradient(90deg,rgba(6,23,35,.92) 0%,rgba(6,23,35,.78) 55%,rgba(6,23,35,.45) 100%),url('https://images.squarespace-cdn.com/content/v1/665f1ef12c744c597d3b455c/1717578169360-0FIK1K03MVWMT4WE8F48/image-asset.jpeg?format=2500w'); background-size:cover; background-position:center; z-index:-1; }
+#sh-projects .sh-breadcrumb { font-size:12px; color:#b8c7d0; margin-bottom:18px; letter-spacing:.5px; text-transform:uppercase; font-weight:700; }
+#sh-projects .sh-breadcrumb a:hover { color:var(--sh-orange); }
+#sh-projects .sh-page-hero h1 { font-size:clamp(40px,5vw,66px); font-weight:900; line-height:1.06; letter-spacing:-2px; color:#fff; max-width:780px; }
+#sh-projects .sh-page-hero h1 em { font-style:normal; color:var(--sh-orange); }
+#sh-projects .sh-page-hero p { margin-top:20px; font-size:18px; color:#d8e3e9; max-width:580px; line-height:1.75; }
+
+/* PROJECT CARDS GRID */
+#sh-projects .sh-proj-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; margin-top:44px; }
+#sh-projects .sh-proj-card { background:var(--sh-cream); border-radius:3px; overflow:hidden; border-top:4px solid var(--sh-orange); display:flex; flex-direction:column; justify-content:space-between; padding:38px 34px; box-shadow:0 8px 28px rgba(18,44,61,.06); transition:transform .25s, box-shadow .25s; }
+#sh-projects .sh-proj-card:hover { transform:translateY(-4px); box-shadow:0 16px 36px rgba(18,44,61,.12); }
+#sh-projects .sh-proj-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+#sh-projects .sh-proj-num { font-size:12px; font-weight:800; color:var(--sh-orange); letter-spacing:2px; }
+#sh-projects .sh-proj-badge { background:var(--sh-navy); color:#fff; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; padding:5px 12px; border-radius:3px; }
+#sh-projects .sh-proj-card h3 { font-size:clamp(24px,2.6vw,32px); font-weight:800; color:var(--sh-navy); margin-bottom:6px; letter-spacing:-.6px; }
+#sh-projects .sh-proj-suburb { font-size:14px; font-weight:700; color:var(--sh-orange); margin-bottom:16px; }
+#sh-projects .sh-proj-desc { font-size:15px; color:var(--sh-muted); line-height:1.75; margin-bottom:24px; }
+#sh-projects .sh-proj-link { font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:1.2px; color:var(--sh-navy); display:inline-flex; align-items:center; gap:8px; }
+#sh-projects .sh-proj-link:hover { color:var(--sh-orange); }
+
+/* STATS BAND */
+#sh-projects .sh-stats-band { background:var(--sh-navy); color:#fff; padding:64px 0; border-top:4px solid var(--sh-orange); }
+#sh-projects .sh-stats-grid { display:grid; grid-template-columns:repeat(4,1fr); text-align:center; gap:24px; }
+#sh-projects .sh-stat-val { font-size:clamp(34px,3.6vw,48px); font-weight:900; color:var(--sh-orange); line-height:1; }
+#sh-projects .sh-stat-lbl { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:#c8d6de; margin-top:10px; }
+
+/* CTA & FOOTER */
+#sh-projects .sh-cta { position:relative; isolation:isolate; background:var(--sh-navy-dark); color:#fff; padding:92px 0; }
+#sh-projects .sh-cta::before { content:""; position:absolute; inset:0; background-image:linear-gradient(90deg,rgba(10,31,45,.95),rgba(10,31,45,.82) 60%,rgba(10,31,45,.65)),url('https://images.squarespace-cdn.com/content/v1/665f1ef12c744c597d3b455c/1717512896516-H9LBFZQ9NN64E484XB64/image-asset.jpeg?format=2000w'); background-size:cover; background-position:center; z-index:-1; }
+#sh-projects .sh-cta-inner { max-width:780px; }
+#sh-projects .sh-cta .sh-title { color:#fff; margin:18px 0 22px; }
+#sh-projects .sh-cta .sh-body { color:#e4ecf0; max-width:580px; }
+#sh-projects .sh-cta .sh-btn { margin-top:32px; }
+#sh-projects .sh-footer { background:#0b1f2d; color:#cddbe2; padding:64px 0 28px; }
+#sh-projects .sh-footer-upper { display:grid; grid-template-columns:1.4fr 1fr 1.2fr; gap:50px; padding-bottom:44px; }
+#sh-projects .sh-footer .sh-logo strong { color:#fff; }
+#sh-projects .sh-footer .sh-logo small { color:#adbec9; }
+#sh-projects .sh-footer p { color:#a5b6c0; max-width:320px; margin-top:20px; font-size:14px; line-height:1.75; }
+#sh-projects .sh-footer h3 { font-size:12px; color:#fff; font-weight:800; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:18px; }
+#sh-projects .sh-footer-links { display:flex; flex-direction:column; gap:11px; }
+#sh-projects .sh-footer-links a, #sh-projects .sh-contact-line { color:#cad5db; font-size:14px; }
+#sh-projects .sh-footer-links a:hover, #sh-projects .sh-contact-line:hover { color:var(--sh-orange); }
+#sh-projects .sh-footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:15px; padding-top:24px; border-top:1px solid #263c4a; color:#91a4af; font-size:12px; flex-wrap:wrap; }
+
+@media(max-width:900px){
+  #sh-projects .sh-topbar { display:none; }
+  #sh-projects .sh-navbar { height:76px; }
+  #sh-projects .sh-spacer { height:76px; }
+  #sh-projects .sh-menu-toggle { display:flex; margin-left:auto; }
+  #sh-projects .sh-header-cta { display:none; }
+  #sh-projects .sh-navlinks { display:none; position:absolute; left:0; right:0; top:76px; background:#fff; padding:20px 26px 26px; flex-direction:column; align-items:stretch; gap:0; box-shadow:0 18px 30px rgba(18,44,61,.16); }
+  #sh-projects .sh-navlinks.is-open { display:flex; }
+  #sh-projects .sh-navlinks > a { font-size:15px; padding:13px 8px; border-bottom:1px solid #e8edef; }
+  #sh-projects .sh-proj-grid { grid-template-columns:1fr; }
+  #sh-projects .sh-stats-grid { grid-template-columns:1fr 1fr; }
+  #sh-projects .sh-footer-upper { grid-template-columns:1fr; gap:36px; }
+}
+@media(max-width:560px){
+  #sh-projects .sh-wrap { width:calc(100% - 36px); }
 }
 </style>
 
 <div id="sh-projects">
-
-  <!-- ===== HEADER ===== -->
-  <header class="sh-header" id="sh-main-header">
+  <header class="sh-header" aria-label="Sunshine Homes site header">
     <div class="sh-topbar">
-      Auckland's trusted residential builders &nbsp;·&nbsp; Email us: <a href="mailto:info@sunshinehomeslimited.co.nz">info@sunshinehomeslimited.co.nz</a>
+      <div class="sh-wrap">
+        <div class="sh-topbar-left"><span>AUCKLAND, NEW ZEALAND</span><span>RESIDENTIAL CONSTRUCTION SINCE 2014</span></div>
+        <div class="sh-topbar-right"><a href="mailto:dr.muhammad.sarwar@sunshinehomes.nz">&#9993;&nbsp; dr.muhammad.sarwar@sunshinehomes.nz</a></div>
+      </div>
     </div>
-    <nav class="sh-nav">
-      <a href="/" class="sh-logo">
-        <div class="sh-logo-mark">SH</div>
-        <div class="sh-logo-text">
-          Sunshine Homes
-          <span>Limited · Auckland, NZ</span>
-        </div>
-      </a>
-      <ul class="sh-nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/our-projects" class="active">Our Projects</a></li>
-        <li><a href="/contact" class="sh-nav-cta sh-nav-cta-desktop">Get a Free Quote</a></li>
-      </ul>
-      <button class="sh-hamburger" id="sh-hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-    <div class="sh-mobile-menu" id="sh-mobile-menu">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/services">Services</a>
-      <a href="/our-projects" class="active">Our Projects</a>
-      <a href="/contact">Contact Us</a>
+    <div class="sh-navbar">
+      <div class="sh-wrap">
+        <a class="sh-logo" href="/" aria-label="Sunshine Homes Limited">
+          <svg viewBox="0 0 64 58" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M43 10a11 11 0 0 1 11 11" fill="none" stroke="#F38B49" stroke-width="3" stroke-linecap="round"/>
+            <path d="M43 2v5M59 5l-4 4M62 21h-5" fill="none" stroke="#F38B49" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M3 30 20 15 37 30M22 35 40 18 61 37" fill="none" stroke="#183F55" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M10 28v25h23V32M33 52h23V36" fill="none" stroke="#183F55" stroke-width="3"/>
+            <path d="M17 41h9v12h-9zM43 37h7v7h-7z" fill="#F38B49"/>
+          </svg>
+          <span><strong>SUNSHINE HOMES</strong><small>BUILT FOR LIVING</small></span>
+        </a>
+        <nav class="sh-navlinks" aria-label="Main navigation">
+          <a href="/">Home</a><a href="/about">About</a><a href="/services">Services</a><a href="/our-projects" class="active">Our Projects</a><a href="/contact">Contact</a>
+        </nav>
+        <a class="sh-btn sh-btn--orange sh-header-cta" href="/contact">Get a Free Quote <span aria-hidden="true">↗</span></a>
+        <button class="sh-menu-toggle" type="button" aria-label="Open navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
+  <div class="sh-spacer" aria-hidden="true"></div>
 
-  <!-- Header spacer -->
-  <div class="sh-header-spacer"></div>
-
-  <!-- ===== HERO ===== -->
-  <section class="sh-hero">
-    <div class="sh-hero-inner">
-      <nav class="sh-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        <span class="sh-breadcrumb-current">Our Projects</span>
-      </nav>
-      <h1 class="sh-hero-heading">Our <span>Projects</span></h1>
-      <p class="sh-hero-tagline">Homes built with pride across Auckland</p>
+  <!-- HERO -->
+  <section class="sh-page-hero">
+    <div class="sh-wrap">
+      <div class="sh-breadcrumb"><a href="/">Home</a> &nbsp;/&nbsp; <span>Our Projects</span></div>
+      <h1>PLACES WE'VE<br><em>WORKED ON.</em></h1>
+      <p>Selected residential construction, development, and renovation locations across Auckland supplied by Sunshine Homes Limited.</p>
     </div>
   </section>
 
-  <!-- ===== FILTER BAR + GRID ===== -->
-  <section class="sh-projects-section">
-    <div class="sh-projects-inner">
+  <!-- PROJECTS GRID -->
+  <section class="sh-section">
+    <div class="sh-wrap">
+      <span class="sh-eyebrow">Project Portfolio</span>
+      <h2 class="sh-title" style="margin-top:16px;">Auckland Residential Projects.</h2>
 
-      <!-- Filter bar -->
-      <div class="sh-filter-bar" role="group" aria-label="Filter projects by type">
-        <span class="sh-filter-label">Filter:</span>
-        <button class="sh-filter-btn active" data-filter="all">All</button>
-        <button class="sh-filter-btn" data-filter="new-build">New Builds</button>
-        <button class="sh-filter-btn" data-filter="renovation">Renovations</button>
-        <button class="sh-filter-btn" data-filter="property">Property Services</button>
-      </div>
-
-      <!-- Projects grid -->
-      <div class="sh-projects-grid" id="sh-projects-grid">
-
-        <!-- Card 1: 34 Mahia Road -->
-        <article class="sh-card" data-type="new-build">
-          <div class="sh-card-stripe new-build"></div>
-          <div class="sh-card-body">
-            <div class="sh-card-top">
-              <h3 class="sh-card-title">34 Mahia Road, Māngere</h3>
-              <span class="sh-badge new-build">New Build</span>
+      <div class="sh-proj-grid">
+        <article class="sh-proj-card">
+          <div>
+            <div class="sh-proj-meta">
+              <span class="sh-proj-num">PROJECT 01</span>
+              <span class="sh-proj-badge">Residential Project</span>
             </div>
-            <p class="sh-card-desc">A stunning 4-bedroom new home build completed in 2023. Modern design with open-plan living and premium finishes throughout.</p>
-            <div class="sh-card-footer">
-              <span class="sh-suburb-tag">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Māngere
-              </span>
-            </div>
+            <h3>48–50 Atkinson Avenue</h3>
+            <div class="sh-proj-suburb">📍 Ōtāhuhu, Auckland</div>
+            <p class="sh-proj-desc">Multi-lot residential construction project located in the heart of Ōtāhuhu, designed for modern family living with quality finishes and practical site planning.</p>
           </div>
+          <a class="sh-proj-link" href="/contact">Enquire About Similar Builds <span aria-hidden="true">↗</span></a>
         </article>
 
-        <!-- Card 2: 12 Coxhead Road -->
-        <article class="sh-card" data-type="new-build">
-          <div class="sh-card-stripe new-build"></div>
-          <div class="sh-card-body">
-            <div class="sh-card-top">
-              <h3 class="sh-card-title">12 Coxhead Road, Manurewa</h3>
-              <span class="sh-badge new-build">New Build</span>
+        <article class="sh-proj-card">
+          <div>
+            <div class="sh-proj-meta">
+              <span class="sh-proj-num">PROJECT 02</span>
+              <span class="sh-proj-badge">Residential Project</span>
             </div>
-            <p class="sh-card-desc">3-bedroom family home with double garage, built to the highest standards of quality and craftsmanship.</p>
-            <div class="sh-card-footer">
-              <span class="sh-suburb-tag">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Manurewa
-              </span>
-            </div>
+            <h3>28 Arthur Road</h3>
+            <div class="sh-proj-suburb">📍 Manurewa, Auckland</div>
+            <p class="sh-proj-desc">Residential building project in Manurewa delivering durable construction, thoughtful layout design, and dependable workmanship from foundation to completion.</p>
           </div>
+          <a class="sh-proj-link" href="/contact">Enquire About Similar Builds <span aria-hidden="true">↗</span></a>
         </article>
 
-        <!-- Card 3: 8 Weymouth Road -->
-        <article class="sh-card" data-type="renovation">
-          <div class="sh-card-stripe renovation"></div>
-          <div class="sh-card-body">
-            <div class="sh-card-top">
-              <h3 class="sh-card-title">8 Weymouth Road, Manurewa</h3>
-              <span class="sh-badge renovation">Renovation</span>
+        <article class="sh-proj-card">
+          <div>
+            <div class="sh-proj-meta">
+              <span class="sh-proj-num">PROJECT 03</span>
+              <span class="sh-proj-badge">Residential Project</span>
             </div>
-            <p class="sh-card-desc">Full kitchen and bathroom renovation, transforming a 1970s home into a modern, light-filled living space.</p>
-            <div class="sh-card-footer">
-              <span class="sh-suburb-tag">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Manurewa
-              </span>
-            </div>
+            <h3>176 Portage Road</h3>
+            <div class="sh-proj-suburb">📍 Papatoetoe, Auckland</div>
+            <p class="sh-proj-desc">Well-positioned residential project in Papatoetoe built with care, combining functional indoor-outdoor flow with modern construction standards.</p>
           </div>
+          <a class="sh-proj-link" href="/contact">Enquire About Similar Builds <span aria-hidden="true">↗</span></a>
         </article>
 
-        <!-- Card 4: 45 Great South Road -->
-        <article class="sh-card" data-type="property">
-          <div class="sh-card-stripe property"></div>
-          <div class="sh-card-body">
-            <div class="sh-card-top">
-              <h3 class="sh-card-title">45 Great South Road, Ōtāhuhu</h3>
-              <span class="sh-badge property">Property Services</span>
+        <article class="sh-proj-card">
+          <div>
+            <div class="sh-proj-meta">
+              <span class="sh-proj-num">PROJECT 04</span>
+              <span class="sh-proj-badge">Residential Project</span>
             </div>
-            <p class="sh-card-desc">Deck, fencing, and outdoor living area upgrade for this investment property — maximising outdoor space and kerb appeal.</p>
-            <div class="sh-card-footer">
-              <span class="sh-suburb-tag">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Ōtāhuhu
-              </span>
-            </div>
+            <h3>572 Redoubt Road</h3>
+            <div class="sh-proj-suburb">📍 Flat Bush, Auckland</div>
+            <p class="sh-proj-desc">Contemporary residential project in Flat Bush showcasing high-standard craftsmanship tailored to one of East/South Auckland's premier residential neighbourhoods.</p>
           </div>
+          <a class="sh-proj-link" href="/contact">Enquire About Similar Builds <span aria-hidden="true">↗</span></a>
         </article>
-
-        <!-- Card 5: 22 Bairds Road -->
-        <article class="sh-card" data-type="new-build">
-          <div class="sh-card-stripe new-build"></div>
-          <div class="sh-card-body">
-            <div class="sh-card-top">
-              <h3 class="sh-card-title">22 Bairds Road, Ōtara</h3>
-              <span class="sh-badge new-build">New Build</span>
-            </div>
-            <p class="sh-card-desc">Affordable 3-bedroom new build delivered on time and within budget — proof that quality doesn't have to cost the earth.</p>
-            <div class="sh-card-footer">
-              <span class="sh-suburb-tag">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Ōtara
-              </span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 6: 67 Rosella Road -->
-        <article class="sh-card" data-type="renovation">
-          <div class="sh-card-stripe renovation"></div>
-          <div class="sh-card-body">
-            <div class="sh-card-top">
-              <h3 class="sh-card-title">67 Rosella Road, Māngere East</h3>
-              <span class="sh-badge renovation">Renovation</span>
-            </div>
-            <p class="sh-card-desc">Second storey addition adding two bedrooms and a family bathroom — effectively doubling the home's living potential.</p>
-            <div class="sh-card-footer">
-              <span class="sh-suburb-tag">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Māngere East
-              </span>
-            </div>
-          </div>
-        </article>
-
-      </div><!-- /#sh-projects-grid -->
-    </div>
-  </section>
-
-  <!-- ===== STATS BAND ===== -->
-  <section class="sh-stats" id="sh-stats-band">
-    <div class="sh-stats-inner">
-      <div class="sh-stat">
-        <div class="sh-stat-value" data-target="50" data-suffix="+">0</div>
-        <div class="sh-stat-divider"></div>
-        <div class="sh-stat-label">Projects Completed</div>
-      </div>
-      <div class="sh-stat">
-        <div class="sh-stat-value" data-target="10" data-suffix="+">0</div>
-        <div class="sh-stat-divider"></div>
-        <div class="sh-stat-label">Years Experience</div>
-      </div>
-      <div class="sh-stat">
-        <div class="sh-stat-value" data-target="6" data-suffix="+">0</div>
-        <div class="sh-stat-divider"></div>
-        <div class="sh-stat-label">Auckland Suburbs</div>
-      </div>
-      <div class="sh-stat">
-        <div class="sh-stat-value" data-target="100" data-suffix="%">0</div>
-        <div class="sh-stat-divider"></div>
-        <div class="sh-stat-label">Client Satisfaction</div>
       </div>
     </div>
   </section>
 
-  <!-- ===== DISCLAIMER ===== -->
-  <div class="sh-disclaimer">
-    <p>All projects shown are completed by Sunshine Homes Limited. Addresses are provided with client permission. Not all completed projects are shown.</p>
-  </div>
+  <!-- STATS BAND -->
+  <section class="sh-stats-band">
+    <div class="sh-wrap sh-stats-grid">
+      <div><div class="sh-stat-val">2014</div><div class="sh-stat-lbl">Established in Auckland</div></div>
+      <div><div class="sh-stat-val">50+</div><div class="sh-stat-lbl">Projects Delivered</div></div>
+      <div><div class="sh-stat-val">100%</div><div class="sh-stat-lbl">Quality Commitment</div></div>
+      <div><div class="sh-stat-val">5★</div><div class="sh-stat-lbl">Client Satisfaction</div></div>
+    </div>
+  </section>
 
-  <!-- ===== CTA STRIP ===== -->
+  <!-- CTA -->
   <section class="sh-cta">
-    <div class="sh-cta-inner">
-      <h2>Want a Home Like These?</h2>
-      <p>Get in touch and let's discuss your project.</p>
-      <a href="/contact" class="sh-btn-white">Start Your Project</a>
+    <div class="sh-wrap">
+      <div class="sh-cta-inner">
+        <span class="sh-eyebrow">Planning a Project?</span>
+        <h2 class="sh-title">Let's build your next<br>Auckland project.</h2>
+        <p class="sh-body">Whether you have a residential site ready for development or a family home you want to build or renovate, get in touch with Sunshine Homes.</p>
+        <a class="sh-btn sh-btn--orange" href="/contact">Start Your Enquiry <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer class="sh-footer">
-    <div class="sh-footer-inner">
-      <div class="sh-footer-grid">
-
-        <!-- Col 1: Brand -->
-        <div class="sh-footer-col">
-          <div class="sh-footer-brand">
-            <div class="sh-footer-logo-mark">SH</div>
-            <div class="sh-footer-logo-text">
-              Sunshine Homes Limited
-              <span>Auckland, New Zealand</span>
-            </div>
-          </div>
-          <p>Building quality homes across South Auckland since 2013. Committed to craftsmanship, transparency, and delivering on our promises.</p>
+    <div class="sh-wrap">
+      <div class="sh-footer-upper">
+        <div>
+          <a class="sh-logo" href="/" aria-label="Sunshine Homes Limited">
+            <svg viewBox="0 0 64 58" aria-hidden="true"><path d="M43 10a11 11 0 0 1 11 11" fill="none" stroke="#F38B49" stroke-width="3"/><path d="M3 30 20 15 37 30M22 35 40 18 61 37" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M10 28v25h23V32M33 52h23V36" fill="none" stroke="#fff" stroke-width="3"/><path d="M17 41h9v12h-9zM43 37h7v7h-7z" fill="#F38B49"/></svg>
+            <span><strong>SUNSHINE HOMES</strong><small>BUILT FOR LIVING</small></span>
+          </a>
+          <p>Homes made with care, crafted for the lives within them. Residential building, renovations, and property services across Auckland.</p>
         </div>
-
-        <!-- Col 2: Quick Links -->
-        <div class="sh-footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/our-projects">Our Projects</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
+        <div>
+          <h3>Explore</h3>
+          <nav class="sh-footer-links" aria-label="Footer navigation">
+            <a href="/">Home</a><a href="/about">About Us</a><a href="/services">Our Services</a><a href="/our-projects">Our Projects</a><a href="/contact">Contact Us</a>
+          </nav>
         </div>
-
-        <!-- Col 3: Services -->
-        <div class="sh-footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="/services">New Builds</a></li>
-            <li><a href="/services">Renovations</a></li>
-            <li><a href="/services">Property Services</a></li>
-            <li><a href="/services">Extensions</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Contact -->
-        <div class="sh-footer-col">
-          <h4>Contact Us</h4>
-          <div class="sh-footer-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <a href="mailto:info@sunshinehomeslimited.co.nz">info@sunshinehomeslimited.co.nz</a>
-          </div>
-          <div class="sh-footer-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Auckland, New Zealand</span>
-          </div>
-          <div class="sh-footer-contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Mon–Fri, 8am–5pm</span>
+        <div>
+          <h3>Get in Touch</h3>
+          <div class="sh-footer-links">
+            <span class="sh-contact-line">28 Atkinson Avenue<br>Ōtāhuhu, Auckland, New Zealand</span>
+            <a class="sh-contact-line" href="mailto:dr.muhammad.sarwar@sunshinehomes.nz">dr.muhammad.sarwar@sunshinehomes.nz</a>
+            <a class="sh-contact-line" href="/contact">Request a Free Quote ↗</a>
           </div>
         </div>
-
-      </div><!-- /.sh-footer-grid -->
-
+      </div>
       <div class="sh-footer-bottom">
-        <p class="sh-footer-copy">&copy; 2024 Sunshine Homes Limited. All rights reserved.</p>
-        <div class="sh-footer-legal">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-        </div>
+        <span>© 2026 Sunshine Homes Limited. All rights reserved.</span>
+        <span>Residential Construction • Auckland, NZ</span>
       </div>
     </div>
   </footer>
-
-</div><!-- /#sh-projects -->
+</div>
 
 <script>
-(function() {
-  'use strict';
-
-  // ===== HIDE SQUARESPACE NATIVE HEADER =====
-  function hideSquarespaceHeader() {
-    var selectors = [
-      '#header',
-      '.Header',
-      '.header-nav',
-      '[data-section-id="header"]',
-      '.site-header',
-      '#siteHeader'
-    ];
-    selectors.forEach(function(sel) {
-      var el = document.querySelector(sel);
-      if (el) {
-        el.style.display = 'none';
-        el.style.visibility = 'hidden';
-        el.style.height = '0';
-        el.style.overflow = 'hidden';
-      }
-    });
+(function(){
+  var root=document.getElementById('sh-projects');
+  if(!root)return;
+  var menuBtn=root.querySelector('.sh-menu-toggle');
+  var menu=root.querySelector('.sh-navlinks');
+  if(menuBtn&&menu){
+    menuBtn.addEventListener('click',function(){menu.classList.toggle('is-open');});
   }
-  hideSquarespaceHeader();
-  // Retry after DOM mutations
-  var mutObs = new MutationObserver(hideSquarespaceHeader);
-  mutObs.observe(document.body, { childList: true, subtree: true });
-  setTimeout(function() { mutObs.disconnect(); }, 5000);
-
-  // ===== DYNAMIC HEADER HEIGHT =====
-  function updateHeaderHeight() {
-    var header = document.getElementById('sh-main-header');
-    var root = document.getElementById('sh-projects');
-    if (header && root) {
-      var h = header.offsetHeight;
-      root.style.setProperty('--sh-header-height', h + 'px');
-    }
-  }
-  updateHeaderHeight();
-  window.addEventListener('resize', updateHeaderHeight);
-
-  // ===== HAMBURGER MOBILE MENU =====
-  var hamburger = document.getElementById('sh-hamburger');
-  var mobileMenu = document.getElementById('sh-mobile-menu');
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', function() {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      var expanded = mobileMenu.classList.contains('open');
-      hamburger.setAttribute('aria-expanded', expanded);
-      updateHeaderHeight();
-    });
-  }
-
-  // ===== FILTER BAR =====
-  var filterBtns = document.querySelectorAll('#sh-projects .sh-filter-btn');
-  var cards = document.querySelectorAll('#sh-projects-grid .sh-card');
-
-  filterBtns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var filter = btn.getAttribute('data-filter');
-
-      // Update active button
-      filterBtns.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-
-      // Show/hide cards
-      cards.forEach(function(card) {
-        if (filter === 'all' || card.getAttribute('data-type') === filter) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
-
-  // ===== ANIMATED COUNTERS =====
-  function animateCounter(el) {
-    if (el.classList.contains('counted')) return;
-    el.classList.add('counted');
-
-    var target   = parseInt(el.getAttribute('data-target'), 10);
-    var suffix   = el.getAttribute('data-suffix') || '';
-    var duration = 1600; // ms
-    var start    = null;
-
-    function easeOut(t) {
-      return 1 - Math.pow(1 - t, 3);
-    }
-
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      var elapsed  = timestamp - start;
-      var progress = Math.min(elapsed / duration, 1);
-      var current  = Math.round(easeOut(progress) * target);
-      el.innerHTML = current + '<span class="sh-stat-suffix">' + suffix + '</span>';
-      if (progress < 1) {
-        requestAnimationFrame(step);
-      } else {
-        el.innerHTML = target + '<span class="sh-stat-suffix">' + suffix + '</span>';
-      }
-    }
-
-    requestAnimationFrame(step);
-  }
-
-  var statValues = document.querySelectorAll('#sh-projects .sh-stat-value[data-target]');
-
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-
-    statValues.forEach(function(el) {
-      observer.observe(el);
-    });
-  } else {
-    // Fallback: animate immediately
-    statValues.forEach(function(el) { animateCounter(el); });
-  }
-
 })();
 </script>
