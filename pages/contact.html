@@ -3,6 +3,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+  /* Break out of Squarespace Fluid Engine box & hide native Squarespace header/footer */
+  body:has(#sh-contact) #header,
+  body:has(#sh-contact) header.Header,
+  body:has(#sh-contact) [data-test="header-section"],
+  body:has(#sh-contact) #footer-sections,
+  body:has(#sh-contact) footer.sections,
+  body:has(#sh-contact) .sqs-announcement-bar-dropzone { display: none !important; }
+  body:has(#sh-contact) { overflow-x: clip; }
+  body:has(#sh-contact) .page-section:has(#sh-contact) { padding: 0 !important; min-height: 0 !important; }
+  body:has(#sh-contact) .content-wrapper:has(#sh-contact) { width:100% !important; max-width:none !important; padding:0 !important; }
+  body:has(#sh-contact) .fluid-engine:has(#sh-contact) { display:block !important; padding:0 !important; min-height:0 !important; }
+  body:has(#sh-contact) .fe-block:has(#sh-contact) { display:block !important; width:100% !important; grid-area:auto !important; position:static !important; }
+  body:has(#sh-contact) .sqs-block-code:has(#sh-contact),
+  body:has(#sh-contact) .sqs-block-code:has(#sh-contact) .sqs-block-content { padding:0 !important; height:auto !important; max-height:none !important; overflow:visible !important; }
+
   #sh-contact {
     --sh-navy: #122c3d;
     --sh-navy-dark: #0c2130;
@@ -20,6 +35,11 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
+    width: 100vw;
+    max-width: none;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
   }
 
   #sh-contact *, #sh-contact *::before, #sh-contact *::after {

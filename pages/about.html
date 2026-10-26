@@ -36,9 +36,30 @@
   #sh-about {
     font-family: 'Inter', Arial, sans-serif;
     color: var(--sh-ink);
+    background: var(--sh-paper);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    width: 100vw;
+    max-width: none;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
   }
+
+  /* Break out of Squarespace Fluid Engine box & hide native Squarespace header/footer */
+  body:has(#sh-about) #header,
+  body:has(#sh-about) header.Header,
+  body:has(#sh-about) [data-test="header-section"],
+  body:has(#sh-about) #footer-sections,
+  body:has(#sh-about) footer.sections,
+  body:has(#sh-about) .sqs-announcement-bar-dropzone { display: none !important; }
+  body:has(#sh-about) { overflow-x: clip; }
+  body:has(#sh-about) .page-section:has(#sh-about) { padding: 0 !important; min-height: 0 !important; }
+  body:has(#sh-about) .content-wrapper:has(#sh-about) { width:100% !important; max-width:none !important; padding:0 !important; }
+  body:has(#sh-about) .fluid-engine:has(#sh-about) { display:block !important; padding:0 !important; min-height:0 !important; }
+  body:has(#sh-about) .fe-block:has(#sh-about) { display:block !important; width:100% !important; grid-area:auto !important; position:static !important; }
+  body:has(#sh-about) .sqs-block-code:has(#sh-about),
+  body:has(#sh-about) .sqs-block-code:has(#sh-about) .sqs-block-content { padding:0 !important; height:auto !important; max-height:none !important; overflow:visible !important; }
 
   #sh-about a {
     text-decoration: none;
