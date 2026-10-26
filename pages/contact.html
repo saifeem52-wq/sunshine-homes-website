@@ -1,0 +1,847 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  #sh-contact {
+    --sh-navy: #122c3d;
+    --sh-navy-dark: #0c2130;
+    --sh-orange: #f38b49;
+    --sh-orange-dark: #dc7735;
+    --sh-ink: #183244;
+    --sh-muted: #677983;
+    --sh-cream: #f6f4f0;
+    --sh-paper: #ffffff;
+    --sh-border: #e4e8ec;
+    --sh-radius: 3px;
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--sh-ink);
+    background: var(--sh-paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+
+  #sh-contact *, #sh-contact *::before, #sh-contact *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sh-contact a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #sh-contact .sh-container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── 1. TOP BAR & NAVBAR ───────────────────────────────────────── */
+  #sh-contact #sh-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background: var(--sh-navy-dark);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.78rem;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+  }
+
+  #sh-contact #sh-topbar .sh-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #sh-contact #sh-topbar a {
+    color: var(--sh-orange);
+    font-weight: 600;
+  }
+
+  #sh-contact #sh-navbar {
+    position: fixed;
+    top: 36px;
+    left: 0;
+    width: 100%;
+    height: 68px;
+    background: var(--sh-paper);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+  }
+
+  #sh-contact #sh-navbar .sh-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #sh-contact .sh-logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--sh-navy);
+    letter-spacing: -0.02em;
+  }
+
+  #sh-contact .sh-logo span {
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  #sh-contact .sh-nav-links a {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--sh-ink);
+    transition: color 0.2s;
+  }
+
+  #sh-contact .sh-nav-links a:hover,
+  #sh-contact .sh-nav-links a.active {
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-nav-links .sh-nav-cta {
+    background: var(--sh-orange);
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: var(--sh-radius);
+    font-weight: 700;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  #sh-contact .sh-nav-links .sh-nav-cta:hover {
+    background: var(--sh-orange-dark);
+    transform: translateY(-1px);
+  }
+
+  #sh-contact .sh-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  #sh-contact .sh-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--sh-navy);
+    transition: 0.25s;
+  }
+
+  #sh-contact .sh-mobile-nav {
+    display: none;
+    position: fixed;
+    top: 104px;
+    left: 0;
+    width: 100%;
+    background: var(--sh-paper);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    z-index: 9998;
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    gap: 14px;
+  }
+
+  #sh-contact .sh-mobile-nav.is-open {
+    display: flex;
+  }
+
+  #sh-contact .sh-mobile-nav a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sh-ink);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--sh-border);
+  }
+
+  /* ── 2. HERO ───────────────────────────────────────────────────── */
+  #sh-contact .sh-hero {
+    padding: 164px 0 72px;
+    background: linear-gradient(135deg, var(--sh-navy-dark) 0%, var(--sh-navy) 100%);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #sh-contact .sh-breadcrumb {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+  }
+
+  #sh-contact .sh-breadcrumb a:hover {
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-hero h1 {
+    font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  #sh-contact .sh-hero h1 span {
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-hero p {
+    font-size: 1.08rem;
+    color: rgba(255,255,255,0.78);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── 3. TWO-COLUMN CONTACT SECTION ─────────────────────────────── */
+  #sh-contact .sh-contact-section {
+    padding: 80px 0;
+    background: var(--sh-cream);
+  }
+
+  #sh-contact .sh-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  #sh-contact .sh-info-panel {
+    background: var(--sh-navy);
+    color: #fff;
+    padding: 44px 36px;
+    border-radius: var(--sh-radius);
+    box-shadow: 0 16px 40px rgba(18,44,61,0.14);
+  }
+
+  #sh-contact .sh-info-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sh-orange);
+    margin-bottom: 10px;
+  }
+
+  #sh-contact .sh-info-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+
+  #sh-contact .sh-info-sub {
+    font-size: 0.94rem;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 32px;
+  }
+
+  #sh-contact .sh-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  #sh-contact .sh-info-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  #sh-contact .sh-info-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--sh-radius);
+    background: rgba(243,139,73,0.16);
+    border: 1px solid rgba(243,139,73,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-info-item h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 4px;
+  }
+
+  #sh-contact .sh-info-item p,
+  #sh-contact .sh-info-item a {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #fff;
+    word-break: break-word;
+  }
+
+  #sh-contact .sh-info-item a:hover {
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-response-badge {
+    background: rgba(255,255,255,0.07);
+    border-left: 3px solid var(--sh-orange);
+    padding: 14px 16px;
+    border-radius: 0 var(--sh-radius) var(--sh-radius) 0;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.88);
+  }
+
+  #sh-contact .sh-response-badge strong {
+    color: #fff;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ── FORM CARD ─────────────────────────────────────────────────── */
+  #sh-contact .sh-form-card {
+    background: var(--sh-paper);
+    padding: 44px 40px;
+    border-radius: var(--sh-radius);
+    box-shadow: 0 8px 32px rgba(18,44,61,0.07);
+    border: 1px solid var(--sh-border);
+  }
+
+  #sh-contact .sh-form-card h2 {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--sh-navy);
+    margin-bottom: 8px;
+  }
+
+  #sh-contact .sh-form-card > p {
+    font-size: 0.94rem;
+    color: var(--sh-muted);
+    margin-bottom: 28px;
+  }
+
+  #sh-contact .sh-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  #sh-contact .sh-form-group {
+    margin-bottom: 18px;
+  }
+
+  #sh-contact .sh-form-group label {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--sh-ink);
+    margin-bottom: 6px;
+  }
+
+  #sh-contact .sh-form-group input,
+  #sh-contact .sh-form-group select,
+  #sh-contact .sh-form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.94rem;
+    color: var(--sh-ink);
+    background: #fcfcfc;
+    border: 1px solid #cfd8df;
+    border-radius: var(--sh-radius);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  #sh-contact .sh-form-group input:focus,
+  #sh-contact .sh-form-group select:focus,
+  #sh-contact .sh-form-group textarea:focus {
+    outline: none;
+    border-color: var(--sh-orange);
+    box-shadow: 0 0 0 3px rgba(243,139,73,0.15);
+    background: #fff;
+  }
+
+  #sh-contact .sh-btn-submit {
+    display: inline-block;
+    width: 100%;
+    padding: 14px 28px;
+    background: var(--sh-orange);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.98rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--sh-radius);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  #sh-contact .sh-btn-submit:hover {
+    background: var(--sh-orange-dark);
+    transform: translateY(-1px);
+  }
+
+  #sh-contact .sh-form-success {
+    display: none;
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+    color: #065f46;
+    border-radius: var(--sh-radius);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  /* ── 4. MAP SECTION ────────────────────────────────────────────── */
+  #sh-contact .sh-map-section {
+    padding: 72px 0;
+    background: var(--sh-paper);
+  }
+
+  #sh-contact .sh-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #sh-contact .sh-section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--sh-orange);
+    margin-bottom: 8px;
+  }
+
+  #sh-contact .sh-section-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800;
+    color: var(--sh-navy);
+  }
+
+  #sh-contact .sh-map-wrap {
+    width: 100%;
+    height: 380px;
+    border-radius: var(--sh-radius);
+    overflow: hidden;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    border: 1px solid var(--sh-border);
+  }
+
+  #sh-contact .sh-map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* ── 5. PRE-CONTACT FAQ TEASER ─────────────────────────────────── */
+  #sh-contact .sh-faq-teaser {
+    padding: 72px 0;
+    background: var(--sh-cream);
+  }
+
+  #sh-contact .sh-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  #sh-contact .sh-faq-card {
+    background: var(--sh-paper);
+    padding: 28px 26px;
+    border-radius: var(--sh-radius);
+    border-top: 3px solid var(--sh-orange);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  }
+
+  #sh-contact .sh-faq-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--sh-navy);
+    margin-bottom: 10px;
+  }
+
+  #sh-contact .sh-faq-card p {
+    font-size: 0.9rem;
+    color: var(--sh-muted);
+    line-height: 1.65;
+  }
+
+  /* ── 6. FOOTER ─────────────────────────────────────────────────── */
+  #sh-contact #sh-footer {
+    background: var(--sh-navy-dark);
+    padding: 64px 0 0;
+    color: rgba(255,255,255,0.65);
+  }
+
+  #sh-contact .sh-footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #sh-contact .sh-footer-logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  #sh-contact .sh-footer-logo span {
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-footer-col-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+  }
+
+  #sh-contact .sh-footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #sh-contact .sh-footer-links a {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    transition: color 0.2s;
+  }
+
+  #sh-contact .sh-footer-links a:hover {
+    color: var(--sh-orange);
+  }
+
+  #sh-contact .sh-footer-bottom {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  @media (max-width: 900px) {
+    #sh-contact .sh-contact-grid {
+      grid-template-columns: 1fr;
+    }
+    #sh-contact .sh-faq-grid {
+      grid-template-columns: 1fr;
+    }
+    #sh-contact .sh-footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #sh-contact .sh-nav-links { display: none; }
+    #sh-contact .sh-hamburger { display: flex; }
+    #sh-contact .sh-form-row { grid-template-columns: 1fr; }
+    #sh-contact .sh-form-card { padding: 32px 24px; }
+    #sh-contact .sh-footer-grid { grid-template-columns: 1fr; }
+    #sh-contact .sh-topbar-left { display: none; }
+  }
+</style>
+
+<div id="sh-contact">
+
+  <!-- 1. TOP BAR -->
+  <div id="sh-topbar">
+    <div class="sh-container">
+      <span class="sh-topbar-left">Auckland's Trusted Builder</span>
+      <span>Email us: <a href="mailto:info@sunshinehomeslimited.co.nz">info@sunshinehomeslimited.co.nz</a></span>
+    </div>
+  </div>
+
+  <!-- 2. NAVBAR -->
+  <nav id="sh-navbar">
+    <div class="sh-container">
+      <a href="/" class="sh-logo">Sunshine <span>Homes</span></a>
+      <div class="sh-nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/our-projects">Our Projects</a>
+        <a href="/contact" class="active sh-nav-cta">Get a Free Quote</a>
+      </div>
+      <button class="sh-hamburger" id="sh-contact-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="sh-mobile-nav" id="sh-contact-mobile-nav">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/services">Services</a>
+    <a href="/our-projects">Our Projects</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- 3. HERO -->
+  <section class="sh-hero">
+    <div class="sh-container">
+      <div class="sh-breadcrumb">
+        <a href="/">Home</a> &nbsp;›&nbsp; <span>Contact</span>
+      </div>
+      <h1>Get in <span>Touch</span></h1>
+      <p>Ready to start your new build, renovation, or property project in Auckland? Send us a message for a free, no-obligation consultation.</p>
+    </div>
+  </section>
+
+  <!-- 4. TWO-COLUMN CONTACT SECTION -->
+  <section class="sh-contact-section">
+    <div class="sh-container">
+      <div class="sh-contact-grid">
+
+        <!-- Left: Contact Details -->
+        <div class="sh-info-panel">
+          <div class="sh-info-label">Direct Contact</div>
+          <h2 class="sh-info-title">Let's Discuss Your Project</h2>
+          <p class="sh-info-sub">Whether you have full architectural plans or just an initial idea, our team is here to guide you through every step.</p>
+
+          <div class="sh-info-list">
+            <div class="sh-info-item">
+              <div class="sh-info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <h4>Email Address</h4>
+                <a href="mailto:info@sunshinehomeslimited.co.nz">info@sunshinehomeslimited.co.nz</a>
+              </div>
+            </div>
+
+            <div class="sh-info-item">
+              <div class="sh-info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Location</h4>
+                <p>Ōtāhuhu, South Auckland<br><span style="font-size:0.85rem;font-weight:400;color:rgba(255,255,255,0.65);">Serving all of Greater Auckland</span></p>
+              </div>
+            </div>
+
+            <div class="sh-info-item">
+              <div class="sh-info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <h4>Business Hours</h4>
+                <p>Monday – Friday: 8:00am – 5:00pm</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sh-response-badge">
+            <strong>⚡ Fast Response Guarantee</strong>
+            We typically respond to all enquiries within 1 business day.
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="sh-form-card" id="sh-native-form-slot">
+          <h2>Request a Free Quote</h2>
+          <p>Fill out the details below and our team will get back to you promptly.</p>
+
+          <form id="sh-contact-form">
+            <div class="sh-form-row">
+              <div class="sh-form-group" style="margin-bottom:0;">
+                <label for="sh-fname">Full Name *</label>
+                <input type="text" id="sh-fname" name="name" required placeholder="e.g. John Smith">
+              </div>
+              <div class="sh-form-group" style="margin-bottom:0;">
+                <label for="sh-email">Email Address *</label>
+                <input type="email" id="sh-email" name="email" required placeholder="e.g. john@example.co.nz">
+              </div>
+            </div>
+
+            <div class="sh-form-row">
+              <div class="sh-form-group" style="margin-bottom:0;">
+                <label for="sh-suburb">Project Suburb</label>
+                <input type="text" id="sh-suburb" name="suburb" placeholder="e.g. Māngere, Remuera, Botany">
+              </div>
+              <div class="sh-form-group" style="margin-bottom:0;">
+                <label for="sh-service">Service Needed *</label>
+                <select id="sh-service" name="service" required>
+                  <option value="New Home Build">New Home Build</option>
+                  <option value="Renovation or Extension">Renovation or Extension</option>
+                  <option value="Property Services">Property Services</option>
+                  <option value="General Enquiry">General Enquiry</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sh-form-group">
+              <label for="sh-message">Tell Us About Your Project *</label>
+              <textarea id="sh-message" name="message" rows="5" required placeholder="Share a brief overview of what you're looking to build or renovate, approximate timeline, or any questions..."></textarea>
+            </div>
+
+            <button type="submit" class="sh-btn-submit">Send Enquiry →</button>
+            <div class="sh-form-success" id="sh-form-success">
+              Thank you! Your email client has been opened with your enquiry details addressed to info@sunshinehomeslimited.co.nz.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. MAP SECTION -->
+  <section class="sh-map-section">
+    <div class="sh-container">
+      <div class="sh-section-header">
+        <div class="sh-section-label">Service Area</div>
+        <h2 class="sh-section-title">Based in Ōtāhuhu, Building Across Auckland</h2>
+      </div>
+      <div class="sh-map-wrap">
+        <iframe
+          title="Sunshine Homes Limited Auckland Map"
+          src="https://www.google.com/maps?q=Otahuhu,+Auckland,+New+Zealand&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PRE-CONTACT FAQ TEASER -->
+  <section class="sh-faq-teaser">
+    <div class="sh-container">
+      <div class="sh-section-header">
+        <div class="sh-section-label">Before You Enquire</div>
+        <h2 class="sh-section-title">Quick Answers</h2>
+      </div>
+      <div class="sh-faq-grid">
+        <div class="sh-faq-card">
+          <h3>Is the initial consultation free?</h3>
+          <p>Yes — our initial consultation is 100% free and comes with no obligation. We'll discuss your site, ideas, budget, and timeline openly.</p>
+        </div>
+        <div class="sh-faq-card">
+          <h3>Do I need plans before contacting you?</h3>
+          <p>Not at all. You can reach out with existing architectural plans or just a rough concept, and we'll guide you through design and council consent.</p>
+        </div>
+        <div class="sh-faq-card">
+          <h3>Which areas of Auckland do you cover?</h3>
+          <p>We build and renovate right across Greater Auckland — including South Auckland, East Auckland, Central suburbs, West Auckland, and the North Shore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER -->
+  <footer id="sh-footer">
+    <div class="sh-container">
+      <div class="sh-footer-grid">
+        <div>
+          <div class="sh-footer-logo">Sunshine <span>Homes</span></div>
+          <p style="font-size:0.88rem;line-height:1.65;color:rgba(255,255,255,0.5);">Auckland's trusted residential construction company. Building dreams and crafting homes since 2014.</p>
+        </div>
+        <div>
+          <h4 class="sh-footer-col-title">Quick Links</h4>
+          <nav class="sh-footer-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/our-projects">Our Projects</a>
+            <a href="/contact">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h4 class="sh-footer-col-title">Services</h4>
+          <nav class="sh-footer-links">
+            <a href="/services">New Home Builds</a>
+            <a href="/services">Renovations &amp; Extensions</a>
+            <a href="/services">Property Services</a>
+            <a href="/services">Project Management</a>
+          </nav>
+        </div>
+        <div>
+          <h4 class="sh-footer-col-title">Contact Info</h4>
+          <div class="sh-footer-links">
+            <a href="mailto:info@sunshinehomeslimited.co.nz">info@sunshinehomeslimited.co.nz</a>
+            <span>Ōtāhuhu, Auckland, NZ</span>
+            <span>Mon–Fri, 8am–5pm</span>
+          </div>
+        </div>
+      </div>
+      <div class="sh-footer-bottom">
+        <p>© 2025 Sunshine Homes Limited. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* Hide Squarespace native header */
+  var selectors = ['header.Header', 'header#header', '.Header', '#header', 'header[data-section-theme]', 'header'];
+  for (var i = 0; i < selectors.length; i++) {
+    var el = document.querySelector(selectors[i]);
+    if (el && !el.closest('#sh-contact')) {
+      el.style.display = 'none';
+      break;
+    }
+  }
+
+  /* Mobile hamburger */
+  var btn = document.getElementById('sh-contact-hamburger');
+  var nav = document.getElementById('sh-contact-mobile-nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function () {
+      nav.classList.toggle('is-open');
+    });
+  }
+
+  /* Form submission handler (opens mailto with prefilled fields so no enquiry is ever lost) */
+  var form = document.getElementById('sh-contact-form');
+  var successBox = document.getElementById('sh-form-success');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('sh-fname').value.trim();
+      var email = document.getElementById('sh-email').value.trim();
+      var suburb = document.getElementById('sh-suburb').value.trim();
+      var service = document.getElementById('sh-service').value;
+      var msg = document.getElementById('sh-message').value.trim();
+
+      var subject = encodeURIComponent('Website Enquiry: ' + service + ' – ' + name);
+      var body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Suburb: ' + (suburb || 'Not specified') + '\n' +
+        'Service: ' + service + '\n\n' +
+        'Project Details:\n' + msg
+      );
+
+      window.location.href = 'mailto:info@sunshinehomeslimited.co.nz?subject=' + subject + '&body=' + body;
+      if (successBox) successBox.style.display = 'block';
+    });
+  }
+})();
+</script>

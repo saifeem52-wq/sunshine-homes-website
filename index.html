@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunshine Homes Limited — Full Redesign Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #0c2130;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .preview-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #081722;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      flex-shrink: 0;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .preview-brand {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .preview-brand span { color: #f38b49; }
+    .preview-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .preview-tab {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 7px 14px;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .preview-tab:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+    }
+    .preview-tab.active {
+      background: #f38b49;
+      color: #fff;
+      border-color: #f38b49;
+    }
+    .preview-frame {
+      flex: 1;
+      width: 100%;
+      border: 0;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-bar">
+    <div class="preview-brand">Sunshine <span>Homes</span> — Redesign Previewer</div>
+    <div class="preview-tabs">
+      <button class="preview-tab active" onclick="loadPage('pages/home.html', this)">🏠 Home</button>
+      <button class="preview-tab" onclick="loadPage('pages/about.html', this)">👥 About</button>
+      <button class="preview-tab" onclick="loadPage('pages/services.html', this)">🔧 Services</button>
+      <button class="preview-tab" onclick="loadPage('pages/projects.html', this)">🏗️ Our Projects</button>
+      <button class="preview-tab" onclick="loadPage('pages/contact.html', this)">📞 Contact</button>
+    </div>
+  </div>
+  <iframe id="preview-frame" class="preview-frame" src="pages/home.html" title="Page Preview"></iframe>
+  <script>
+    function loadPage(url, btn) {
+      document.getElementById('preview-frame').src = url;
+      document.querySelectorAll('.preview-tab').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

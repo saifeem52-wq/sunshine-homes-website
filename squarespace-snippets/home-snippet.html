@@ -1,23 +1,23 @@
 <!-- ============================================================
      SUNSHINE HOMES — Homepage Squarespace Snippet
-     Paste this ONCE into the Squarespace Code Block on the Homepage.
+     Paste this ONCE into the Squarespace Code Block on the Homepage (/).
      All future updates are pushed via GitHub — no need to edit this again.
      ============================================================ -->
-
-<div id="sh-github-loader">Loading...</div>
-
+<div id="sh-github-loader" style="min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:Arial,sans-serif;color:#122c3d;">Loading Sunshine Homes...</div>
 <script>
 (function() {
   var GITHUB_URL = 'https://saifeem52-wq.github.io/sunshine-homes-website/pages/home.html';
   var container = document.getElementById('sh-github-loader');
-
-  fetch(GITHUB_URL)
+  fetch(GITHUB_URL, { cache: 'no-cache' })
     .then(function(r) { return r.text(); })
     .then(function(html) {
-      container.outerHTML = html;
+      var range = document.createRange();
+      range.selectNode(container);
+      var frag = range.createContextualFragment(html);
+      container.parentNode.replaceChild(frag, container);
     })
     .catch(function() {
-      container.innerHTML = '<p style="text-align:center;padding:2rem">Unable to load content. Please try refreshing.</p>';
+      container.innerHTML = '<p style="text-align:center;padding:2rem">Unable to load content. Please refresh the page.</p>';
     });
 })();
 </script>

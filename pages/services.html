@@ -1,0 +1,1180 @@
+<!-- Sunshine Homes Limited — Services Page -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  :root {
+    --sh-navy: #122c3d;
+    --sh-navy-dark: #0c2130;
+    --sh-orange: #f38b49;
+    --sh-ink: #183244;
+    --sh-muted: #677983;
+    --sh-cream: #f6f4f0;
+    --sh-paper: #ffffff;
+  }
+
+  #sh-services *,
+  #sh-services *::before,
+  #sh-services *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sh-services {
+    font-family: 'Inter', sans-serif;
+    color: var(--sh-ink);
+    background: var(--sh-paper);
+    line-height: 1.6;
+  }
+
+  /* ─── TOP BAR ─── */
+  #sh-services .sh-topbar {
+    background: var(--sh-navy-dark);
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 7px 16px;
+  }
+
+  /* ─── HEADER / NAVBAR ─── */
+  #sh-services .sh-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: var(--sh-paper);
+    box-shadow: 0 2px 12px rgba(18,44,61,0.10);
+  }
+
+  #sh-services .sh-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 66px;
+  }
+
+  #sh-services .sh-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  #sh-services .sh-logo-mark {
+    width: 38px;
+    height: 38px;
+    background: var(--sh-orange);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+
+  #sh-services .sh-logo-text {
+    line-height: 1.2;
+  }
+
+  #sh-services .sh-logo-text span {
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--sh-navy);
+  }
+
+  #sh-services .sh-logo-text small {
+    font-size: 10.5px;
+    color: var(--sh-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  #sh-services .sh-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+  }
+
+  #sh-services .sh-nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--sh-ink);
+    padding: 6px 14px;
+    border-radius: 3px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  #sh-services .sh-nav-links a:hover,
+  #sh-services .sh-nav-links a.active {
+    color: var(--sh-orange);
+    background: rgba(243,139,73,0.07);
+  }
+
+  #sh-services .sh-nav-cta {
+    background: var(--sh-orange) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    border-radius: 3px !important;
+    padding: 8px 18px !important;
+    transition: background 0.2s !important;
+  }
+
+  #sh-services .sh-nav-cta:hover {
+    background: #e07a38 !important;
+    color: #fff !important;
+  }
+
+  #sh-services .sh-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  #sh-services .sh-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--sh-navy);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  #sh-services .sh-mobile-nav {
+    display: none;
+    background: var(--sh-paper);
+    border-top: 1px solid rgba(18,44,61,0.08);
+    padding: 12px 0 16px;
+  }
+
+  #sh-services .sh-mobile-nav.open {
+    display: block;
+  }
+
+  #sh-services .sh-mobile-nav a {
+    display: block;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--sh-ink);
+    padding: 10px 24px;
+    transition: color 0.2s;
+  }
+
+  #sh-services .sh-mobile-nav a:hover,
+  #sh-services .sh-mobile-nav a.active {
+    color: var(--sh-orange);
+  }
+
+  /* ─── HERO ─── */
+  #sh-services .sh-hero {
+    background: var(--sh-navy);
+    padding: 100px 24px 80px;
+    text-align: center;
+    padding-top: calc(var(--header-h, 88px) + 64px);
+  }
+
+  #sh-services .sh-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 20px;
+    letter-spacing: 0.03em;
+  }
+
+  #sh-services .sh-breadcrumb a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  #sh-services .sh-breadcrumb a:hover {
+    color: var(--sh-orange);
+  }
+
+  #sh-services .sh-breadcrumb .sep {
+    font-size: 11px;
+    opacity: 0.6;
+  }
+
+  #sh-services .sh-hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  #sh-services .sh-hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.72);
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  /* ─── SECTION COMMON ─── */
+  #sh-services .sh-section {
+    padding: 80px 24px;
+  }
+
+  #sh-services .sh-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #sh-services .sh-section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sh-orange);
+    margin-bottom: 10px;
+  }
+
+  #sh-services .sh-section-title {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: var(--sh-navy);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 48px;
+  }
+
+  /* ─── SERVICES TABS ─── */
+  #sh-services .sh-tabs-section {
+    background: var(--sh-paper);
+  }
+
+  #sh-services .sh-tabs-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  #sh-services .sh-tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  #sh-services .sh-tab-btn {
+    background: none;
+    border: 2px solid rgba(18,44,61,0.15);
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--sh-muted);
+    padding: 12px 26px;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.01em;
+  }
+
+  #sh-services .sh-tab-btn:hover {
+    border-color: var(--sh-orange);
+    color: var(--sh-orange);
+  }
+
+  #sh-services .sh-tab-btn.active {
+    background: var(--sh-orange);
+    border-color: var(--sh-orange);
+    color: #fff;
+  }
+
+  #sh-services .sh-tab-panel {
+    display: none;
+  }
+
+  #sh-services .sh-tab-panel.active {
+    display: block;
+  }
+
+  #sh-services .sh-service-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    background: var(--sh-cream);
+    border-radius: 8px;
+    padding: 48px;
+  }
+
+  #sh-services .sh-service-card-left h3 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--sh-navy);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  #sh-services .sh-service-card-left p {
+    font-size: 16px;
+    color: var(--sh-muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  #sh-services .sh-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  #sh-services .sh-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--sh-orange);
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  #sh-services .sh-badge::before {
+    content: '✓';
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  #sh-services .sh-service-card-right h4 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sh-navy);
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  #sh-services .sh-included-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #sh-services .sh-included-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--sh-ink);
+    font-weight: 500;
+  }
+
+  #sh-services .sh-included-list li::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    background: var(--sh-navy);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23fff'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 2px;
+  }
+
+  /* ─── PROCESS ─── */
+  #sh-services .sh-process {
+    background: var(--sh-cream);
+  }
+
+  #sh-services .sh-process-header {
+    text-align: center;
+  }
+
+  #sh-services .sh-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+    margin-top: 20px;
+  }
+
+  #sh-services .sh-steps::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: calc(12.5% + 32px);
+    right: calc(12.5% + 32px);
+    height: 2px;
+    background: linear-gradient(to right, var(--sh-orange), var(--sh-navy));
+    z-index: 0;
+  }
+
+  #sh-services .sh-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  #sh-services .sh-step-num {
+    width: 64px;
+    height: 64px;
+    background: var(--sh-orange);
+    color: #fff;
+    font-size: 24px;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(243,139,73,0.3);
+    flex-shrink: 0;
+  }
+
+  #sh-services .sh-step h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--sh-navy);
+    margin-bottom: 10px;
+  }
+
+  #sh-services .sh-step p {
+    font-size: 14px;
+    color: var(--sh-muted);
+    line-height: 1.65;
+  }
+
+  /* ─── FAQ ─── */
+  #sh-services .sh-faq {
+    background: var(--sh-paper);
+  }
+
+  #sh-services .sh-faq-header {
+    text-align: center;
+  }
+
+  #sh-services .sh-faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(18,44,61,0.10);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  #sh-services .sh-faq-item {
+    border-bottom: 1px solid rgba(18,44,61,0.10);
+  }
+
+  #sh-services .sh-faq-item:last-child {
+    border-bottom: none;
+  }
+
+  #sh-services .sh-faq-q {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--sh-ink);
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: background 0.2s;
+  }
+
+  #sh-services .sh-faq-q:hover {
+    background: rgba(243,139,73,0.04);
+  }
+
+  #sh-services .sh-faq-q.open {
+    color: var(--sh-orange);
+  }
+
+  #sh-services .sh-faq-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.3s;
+    color: var(--sh-orange);
+  }
+
+  #sh-services .sh-faq-q.open .sh-faq-icon {
+    transform: rotate(45deg);
+  }
+
+  #sh-services .sh-faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    padding: 0 24px;
+  }
+
+  #sh-services .sh-faq-a.open {
+    max-height: 300px;
+    padding: 0 24px 20px;
+  }
+
+  #sh-services .sh-faq-a p {
+    font-size: 15px;
+    color: var(--sh-muted);
+    line-height: 1.7;
+  }
+
+  /* ─── CTA STRIP ─── */
+  #sh-services .sh-cta-strip {
+    background: var(--sh-orange);
+    padding: 72px 24px;
+    text-align: center;
+  }
+
+  #sh-services .sh-cta-strip h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  #sh-services .sh-cta-strip p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 32px;
+  }
+
+  #sh-services .sh-btn {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+    letter-spacing: 0.02em;
+  }
+
+  #sh-services .sh-btn-white {
+    background: #fff;
+    color: var(--sh-orange);
+    border-color: #fff;
+  }
+
+  #sh-services .sh-btn-white:hover {
+    background: transparent;
+    color: #fff;
+  }
+
+  #sh-services .sh-btn-navy {
+    background: var(--sh-navy);
+    color: #fff;
+    border-color: var(--sh-navy);
+  }
+
+  #sh-services .sh-btn-navy:hover {
+    background: var(--sh-navy-dark);
+    border-color: var(--sh-navy-dark);
+  }
+
+  /* ─── FOOTER ─── */
+  #sh-services .sh-footer {
+    background: var(--sh-navy-dark);
+    color: rgba(255,255,255,0.75);
+    padding: 64px 24px 0;
+  }
+
+  #sh-services .sh-footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: 40px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+
+  #sh-services .sh-footer-brand p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    margin-top: 14px;
+    max-width: 280px;
+  }
+
+  #sh-services .sh-footer-col h5 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+  }
+
+  #sh-services .sh-footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #sh-services .sh-footer-col ul a {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    transition: color 0.2s;
+  }
+
+  #sh-services .sh-footer-col ul a:hover {
+    color: var(--sh-orange);
+  }
+
+  #sh-services .sh-footer-contact-item {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+
+  #sh-services .sh-footer-contact-item .fi {
+    color: var(--sh-orange);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  #sh-services .sh-footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  #sh-services .sh-footer-bottom p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  #sh-services .sh-footer-bottom a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  #sh-services .sh-footer-bottom a:hover {
+    color: var(--sh-orange);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    #sh-services .sh-service-card {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 32px;
+    }
+
+    #sh-services .sh-steps {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 16px;
+    }
+
+    #sh-services .sh-steps::before {
+      display: none;
+    }
+
+    #sh-services .sh-footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    #sh-services .sh-nav-links {
+      display: none;
+    }
+
+    #sh-services .sh-hamburger {
+      display: flex;
+    }
+
+    #sh-services .sh-tabs-nav {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    #sh-services .sh-tab-btn {
+      text-align: center;
+    }
+
+    #sh-services .sh-steps {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+      margin: 20px auto 0;
+    }
+
+    #sh-services .sh-footer-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    #sh-services .sh-footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<div id="sh-services">
+
+  <!-- ─── HEADER ─── -->
+  <header class="sh-header" id="sh-header">
+    <div style="background:var(--sh-navy-dark);color:rgba(255,255,255,.75);font-size:12px;letter-spacing:.04em;text-align:center;padding:7px 16px;font-family:'Inter',sans-serif;">
+      Auckland's trusted residential builders &nbsp;·&nbsp; <a href="mailto:info@sunshinehomeslimited.co.nz" style="color:var(--sh-orange);text-decoration:none;">info@sunshinehomeslimited.co.nz</a>
+    </div>
+    <nav>
+      <div class="sh-nav-inner">
+        <a href="/" class="sh-logo" aria-label="Sunshine Homes Limited">
+          <div class="sh-logo-mark">SH</div>
+          <div class="sh-logo-text">
+            <span>Sunshine Homes</span>
+            <small>Limited</small>
+          </div>
+        </a>
+        <ul class="sh-nav-links" role="list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services" class="active">Services</a></li>
+          <li><a href="/our-projects">Our Projects</a></li>
+          <li><a href="/contact" class="sh-nav-cta">Get a Free Quote</a></li>
+        </ul>
+        <button class="sh-hamburger" id="sh-hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="sh-mobile-nav" id="sh-mobile-nav" role="navigation" aria-label="Mobile navigation">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services" class="active">Services</a>
+        <a href="/our-projects">Our Projects</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="sh-hero" id="sh-hero">
+    <div class="sh-breadcrumb">
+      <a href="/">Home</a>
+      <span class="sep">›</span>
+      <span>Services</span>
+    </div>
+    <h1>Our Services</h1>
+    <p>Quality construction services tailored to Auckland homeowners</p>
+  </section>
+
+  <!-- ─── SERVICES TABS ─── -->
+  <section class="sh-section sh-tabs-section">
+    <div class="sh-container">
+      <div class="sh-tabs-header">
+        <span class="sh-section-label">What We Do</span>
+        <div class="sh-section-title">What We Offer</div>
+      </div>
+      <div class="sh-tabs-nav" role="tablist" aria-label="Service categories">
+        <button class="sh-tab-btn active" role="tab" aria-selected="true" aria-controls="sh-tab-builds" id="sh-tabBtn-builds" data-tab="builds">🏠 New Home Builds</button>
+        <button class="sh-tab-btn" role="tab" aria-selected="false" aria-controls="sh-tab-reno" id="sh-tabBtn-reno" data-tab="reno">🔨 Renovations &amp; Extensions</button>
+        <button class="sh-tab-btn" role="tab" aria-selected="false" aria-controls="sh-tab-prop" id="sh-tabBtn-prop" data-tab="prop">🏡 Property Services</button>
+      </div>
+
+      <!-- Tab 1: New Home Builds -->
+      <div class="sh-tab-panel active" id="sh-tab-builds" role="tabpanel" aria-labelledby="sh-tabBtn-builds">
+        <div class="sh-service-card">
+          <div class="sh-service-card-left">
+            <h3>New Home Builds</h3>
+            <p>We build quality new homes from the ground up, tailored to your lifestyle and budget. From design through to handover, we manage every detail.</p>
+            <div class="sh-benefits">
+              <span class="sh-badge">On-time delivery</span>
+              <span class="sh-badge">Fixed-price contracts</span>
+              <span class="sh-badge">10-year build warranty</span>
+            </div>
+          </div>
+          <div class="sh-service-card-right">
+            <h4>What's Included</h4>
+            <ul class="sh-included-list">
+              <li>Site preparation &amp; foundation</li>
+              <li>Framing &amp; structural work</li>
+              <li>Plumbing, electrical &amp; insulation</li>
+              <li>Interior &amp; exterior finishing</li>
+              <li>Council consent management</li>
+              <li>Full project management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Renovations & Extensions -->
+      <div class="sh-tab-panel" id="sh-tab-reno" role="tabpanel" aria-labelledby="sh-tabBtn-reno">
+        <div class="sh-service-card">
+          <div class="sh-service-card-left">
+            <h3>Renovations &amp; Extensions</h3>
+            <p>Transform your existing home with our expert renovation and extension services. Whether it's a kitchen refresh or a full second storey, we deliver.</p>
+            <div class="sh-benefits">
+              <span class="sh-badge">Minimal disruption</span>
+              <span class="sh-badge">Transparent pricing</span>
+              <span class="sh-badge">Licensed builders</span>
+            </div>
+          </div>
+          <div class="sh-service-card-right">
+            <h4>What's Included</h4>
+            <ul class="sh-included-list">
+              <li>Kitchen &amp; bathroom renovations</li>
+              <li>Room additions &amp; extensions</li>
+              <li>Second storey additions</li>
+              <li>Structural alterations</li>
+              <li>Weathertight repairs</li>
+              <li>Interior upgrades</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Property Services -->
+      <div class="sh-tab-panel" id="sh-tab-prop" role="tabpanel" aria-labelledby="sh-tabBtn-prop">
+        <div class="sh-service-card">
+          <div class="sh-service-card-left">
+            <h3>Property Services</h3>
+            <p>Beyond building, we offer a range of property services to maintain, improve, and add value to your Auckland property.</p>
+            <div class="sh-benefits">
+              <span class="sh-badge">Fast turnaround</span>
+              <span class="sh-badge">Auckland-wide</span>
+              <span class="sh-badge">Competitive rates</span>
+            </div>
+          </div>
+          <div class="sh-service-card-right">
+            <h4>What's Included</h4>
+            <ul class="sh-included-list">
+              <li>Decking &amp; outdoor living</li>
+              <li>Garage conversions</li>
+              <li>Fencing &amp; landscaping</li>
+              <li>General property maintenance</li>
+              <li>Pre-sale improvements</li>
+              <li>Investment property upgrades</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── OUR PROCESS ─── -->
+  <section class="sh-section sh-process">
+    <div class="sh-container">
+      <div class="sh-process-header">
+        <span class="sh-section-label">Simple &amp; transparent</span>
+        <div class="sh-section-title">How It Works</div>
+      </div>
+      <div class="sh-steps">
+        <div class="sh-step">
+          <div class="sh-step-num">1</div>
+          <h4>Free Consultation</h4>
+          <p>We meet to understand your vision, goals, and budget. There's no cost and no obligation — just an honest conversation about your project.</p>
+        </div>
+        <div class="sh-step">
+          <div class="sh-step-num">2</div>
+          <h4>Design &amp; Consent</h4>
+          <p>Our team works with designers and Auckland Council to finalise plans and obtain all required building consents on your behalf.</p>
+        </div>
+        <div class="sh-step">
+          <div class="sh-step-num">3</div>
+          <h4>Construction</h4>
+          <p>Our licensed builders get to work with regular updates and site visits so you're always in the loop from foundation to roof.</p>
+        </div>
+        <div class="sh-step">
+          <div class="sh-step-num">4</div>
+          <h4>Handover &amp; Warranty</h4>
+          <p>We do a full walkthrough before handing over the keys. Your home is backed by our comprehensive warranty for total peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="sh-section sh-faq">
+    <div class="sh-container">
+      <div class="sh-faq-header">
+        <span class="sh-section-label">FAQ</span>
+        <div class="sh-section-title">Common Questions</div>
+      </div>
+      <div class="sh-faq-list" role="list">
+
+        <div class="sh-faq-item" role="listitem">
+          <button class="sh-faq-q" aria-expanded="false">
+            How long does a new build take?
+            <span class="sh-faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="sh-faq-a" role="region">
+            <p>A typical new home build takes 6–12 months depending on size and complexity. We'll give you a realistic timeline at the start and keep you updated throughout.</p>
+          </div>
+        </div>
+
+        <div class="sh-faq-item" role="listitem">
+          <button class="sh-faq-q" aria-expanded="false">
+            Do you handle council consents?
+            <span class="sh-faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="sh-faq-a" role="region">
+            <p>Yes, we manage the entire consent process with Auckland Council on your behalf. This includes plans, documentation, and inspections.</p>
+          </div>
+        </div>
+
+        <div class="sh-faq-item" role="listitem">
+          <button class="sh-faq-q" aria-expanded="false">
+            Are your prices fixed?
+            <span class="sh-faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="sh-faq-a" role="region">
+            <p>We offer fixed-price contracts for most projects, so you know exactly what you're paying upfront with no nasty surprises.</p>
+          </div>
+        </div>
+
+        <div class="sh-faq-item" role="listitem">
+          <button class="sh-faq-q" aria-expanded="false">
+            Are you licensed?
+            <span class="sh-faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="sh-faq-a" role="region">
+            <p>Yes, all our builders are Licensed Building Practitioners (LBP) and we are Master Builder accredited.</p>
+          </div>
+        </div>
+
+        <div class="sh-faq-item" role="listitem">
+          <button class="sh-faq-q" aria-expanded="false">
+            Do you work across all of Auckland?
+            <span class="sh-faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="sh-faq-a" role="region">
+            <p>Yes, we work across the greater Auckland region including South Auckland, East Auckland, West Auckland and the North Shore.</p>
+          </div>
+        </div>
+
+        <div class="sh-faq-item" role="listitem">
+          <button class="sh-faq-q" aria-expanded="false">
+            What is your warranty?
+            <span class="sh-faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="sh-faq-a" role="region">
+            <p>We provide a 10-year Master Build Guarantee on all new home builds, and a 12-month defects warranty on all other work.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA STRIP ─── -->
+  <section class="sh-cta-strip">
+    <div class="sh-container">
+      <h2>Ready to Get Started?</h2>
+      <p>Contact us for a free, no-obligation quote.</p>
+      <a href="/contact" class="sh-btn sh-btn-white">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="sh-footer">
+    <div class="sh-footer-grid">
+      <div class="sh-footer-brand">
+        <a href="/" class="sh-logo" style="text-decoration:none;">
+          <div class="sh-logo-mark">SH</div>
+          <div class="sh-logo-text">
+            <span style="color:#fff;">Sunshine Homes</span>
+            <small style="color:rgba(255,255,255,.45);">Limited</small>
+          </div>
+        </a>
+        <p>Auckland's trusted residential builders. Quality construction, honest pricing, and service you can count on.</p>
+      </div>
+
+      <div class="sh-footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/our-projects">Our Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="sh-footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="/services">New Home Builds</a></li>
+          <li><a href="/services">Renovations</a></li>
+          <li><a href="/services">Extensions</a></li>
+          <li><a href="/services">Property Services</a></li>
+        </ul>
+      </div>
+
+      <div class="sh-footer-col">
+        <h5>Contact</h5>
+        <div class="sh-footer-contact-item">
+          <span class="fi">✉️</span>
+          <a href="mailto:info@sunshinehomeslimited.co.nz" style="color:rgba(255,255,255,.65);text-decoration:none;">info@sunshinehomeslimited.co.nz</a>
+        </div>
+        <div class="sh-footer-contact-item">
+          <span class="fi">📍</span>
+          <span>Auckland, New Zealand</span>
+        </div>
+        <div class="sh-footer-contact-item">
+          <span class="fi">🕒</span>
+          <span>Mon–Fri, 8am–5pm</span>
+        </div>
+      </div>
+    </div>
+    <div class="sh-footer-bottom">
+      <p>© 2025 Sunshine Homes Limited. All rights reserved.</p>
+      <div style="display:flex;gap:16px;">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /#sh-services -->
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Hide Squarespace native header ──
+  (function hideSSHeader() {
+    var style = document.createElement('style');
+    style.textContent = [
+      '#header, .Header, .site-header, header.Header,',
+      '[data-section-id="header"], .sqs-header-menu,',
+      '.header-inner, #site-header { display: none !important; }'
+    ].join(' ');
+    document.head.appendChild(style);
+  }());
+
+  // ── Header height → hero padding ──
+  function syncHeaderPad() {
+    var hdr = document.getElementById('sh-header');
+    var hero = document.getElementById('sh-hero');
+    if (!hdr || !hero) return;
+    var h = hdr.offsetHeight;
+    hero.style.paddingTop = (h + 64) + 'px';
+  }
+  syncHeaderPad();
+  window.addEventListener('resize', syncHeaderPad);
+
+  // ── Mobile hamburger ──
+  var burger = document.getElementById('sh-hamburger');
+  var mobileNav = document.getElementById('sh-mobile-nav');
+  if (burger && mobileNav) {
+    burger.addEventListener('click', function () {
+      var isOpen = mobileNav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+    });
+  }
+
+  // ── Tab switching ──
+  var tabBtns = document.querySelectorAll('#sh-services .sh-tab-btn');
+  var tabPanels = document.querySelectorAll('#sh-services .sh-tab-panel');
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.getAttribute('data-tab');
+
+      tabBtns.forEach(function (b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      tabPanels.forEach(function (p) {
+        p.classList.remove('active');
+      });
+
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      var panel = document.getElementById('sh-tab-' + target);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // ── FAQ accordion ──
+  var faqItems = document.querySelectorAll('#sh-services .sh-faq-item');
+
+  faqItems.forEach(function (item) {
+    var q = item.querySelector('.sh-faq-q');
+    var a = item.querySelector('.sh-faq-a');
+    if (!q || !a) return;
+
+    q.addEventListener('click', function () {
+      var isOpen = a.classList.contains('open');
+
+      // Close all
+      faqItems.forEach(function (fi) {
+        fi.querySelector('.sh-faq-q').classList.remove('open');
+        fi.querySelector('.sh-faq-q').setAttribute('aria-expanded', 'false');
+        fi.querySelector('.sh-faq-a').classList.remove('open');
+      });
+
+      // Toggle clicked
+      if (!isOpen) {
+        q.classList.add('open');
+        q.setAttribute('aria-expanded', 'true');
+        a.classList.add('open');
+      }
+    });
+  });
+
+}());
+</script>

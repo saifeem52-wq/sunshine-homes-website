@@ -1,0 +1,1231 @@
+<!-- Sunshine Homes Limited – About Page -->
+<!-- Served via GitHub Pages, loaded into Squarespace Code Block via fetch() -->
+
+<style>
+  /* ============================================================
+     GOOGLE FONTS
+  ============================================================ */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  /* ============================================================
+     DESIGN TOKENS
+  ============================================================ */
+  :root {
+    --sh-navy:      #122c3d;
+    --sh-navy-dark: #0c2130;
+    --sh-orange:    #f38b49;
+    --sh-ink:       #183244;
+    --sh-muted:     #677983;
+    --sh-cream:     #f6f4f0;
+    --sh-paper:     #ffffff;
+    --sh-radius:    3px;
+    --sh-header-h:  100px; /* thin bar 40px + nav 60px */
+  }
+
+  /* ============================================================
+     RESET / BASE
+  ============================================================ */
+  #sh-about *,
+  #sh-about *::before,
+  #sh-about *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  #sh-about {
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--sh-ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #sh-about a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #sh-about ul {
+    list-style: none;
+  }
+
+  #sh-about img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* ============================================================
+     HEADER – thin top bar + sticky white navbar
+  ============================================================ */
+  #sh-about .sh-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  /* --- Top bar --- */
+  #sh-about .sh-topbar {
+    background: var(--sh-navy-dark);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #sh-about .sh-topbar p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.04em;
+  }
+
+  #sh-about .sh-topbar a {
+    color: var(--sh-orange);
+    font-weight: 600;
+  }
+
+  /* --- Main nav bar --- */
+  #sh-about .sh-navbar {
+    background: var(--sh-paper);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    border-bottom: 3px solid var(--sh-orange);
+    box-shadow: 0 2px 12px rgba(18,44,61,0.10);
+  }
+
+  #sh-about .sh-logo a {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sh-navy);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  #sh-about .sh-logo span {
+    color: var(--sh-orange);
+  }
+
+  #sh-about .sh-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  #sh-about .sh-nav-links a {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--sh-ink);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  #sh-about .sh-nav-links a:hover,
+  #sh-about .sh-nav-links a.active {
+    color: var(--sh-orange);
+    border-bottom-color: var(--sh-orange);
+  }
+
+  #sh-about .sh-nav-cta {
+    background: var(--sh-orange);
+    color: var(--sh-paper) !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--sh-radius);
+    border-bottom: none !important;
+    transition: background 0.2s !important;
+  }
+
+  #sh-about .sh-nav-cta:hover {
+    background: #e0782f !important;
+    color: var(--sh-paper) !important;
+  }
+
+  /* Hamburger */
+  #sh-about .sh-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  #sh-about .sh-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--sh-navy);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* Mobile nav */
+  #sh-about .sh-mobile-nav {
+    display: none;
+    background: var(--sh-paper);
+    border-top: 1px solid #e5e7eb;
+    padding: 1rem 5%;
+  }
+
+  #sh-about .sh-mobile-nav.open {
+    display: block;
+  }
+
+  #sh-about .sh-mobile-nav a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--sh-ink);
+    border-bottom: 1px solid #f0f0f0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  #sh-about .sh-mobile-nav a:last-child {
+    border-bottom: none;
+  }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  #sh-about .sh-hero {
+    background: var(--sh-navy);
+    padding: calc(var(--sh-header-h) + 5rem) 5% 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #sh-about .sh-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f38b49' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+  }
+
+  #sh-about .sh-hero-inner {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #sh-about .sh-breadcrumb {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  #sh-about .sh-breadcrumb a {
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+
+  #sh-about .sh-breadcrumb a:hover {
+    color: var(--sh-orange);
+  }
+
+  #sh-about .sh-breadcrumb .sep {
+    color: rgba(255,255,255,0.3);
+  }
+
+  #sh-about .sh-breadcrumb .current {
+    color: var(--sh-orange);
+  }
+
+  #sh-about .sh-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--sh-paper);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  #sh-about .sh-hero h1 em {
+    font-style: normal;
+    color: var(--sh-orange);
+  }
+
+  #sh-about .sh-hero-tagline {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+    max-width: 520px;
+  }
+
+  /* Orange accent line */
+  #sh-about .sh-hero-bar {
+    width: 60px;
+    height: 4px;
+    background: var(--sh-orange);
+    border-radius: 2px;
+    margin: 1.5rem 0;
+  }
+
+  /* ============================================================
+     SHARED SECTION UTILITIES
+  ============================================================ */
+  #sh-about .sh-section {
+    padding: 5rem 5%;
+  }
+
+  #sh-about .sh-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #sh-about .sh-section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sh-orange);
+    margin-bottom: 0.6rem;
+  }
+
+  #sh-about .sh-section-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--sh-navy);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  #sh-about .sh-section-title span {
+    color: var(--sh-orange);
+  }
+
+  /* ============================================================
+     OUR STORY
+  ============================================================ */
+  #sh-about .sh-story {
+    background: var(--sh-paper);
+  }
+
+  #sh-about .sh-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* --- Timeline --- */
+  #sh-about .sh-timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  #sh-about .sh-timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--sh-orange), rgba(243,139,73,0.15));
+  }
+
+  #sh-about .sh-timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+
+  #sh-about .sh-timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  #sh-about .sh-timeline-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background: var(--sh-paper);
+    border: 3px solid var(--sh-orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #sh-about .sh-timeline-dot::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--sh-orange);
+    border-radius: 50%;
+  }
+
+  #sh-about .sh-timeline-year {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--sh-orange);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+  }
+
+  #sh-about .sh-timeline-text {
+    font-size: 0.95rem;
+    color: var(--sh-ink);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* --- Story copy --- */
+  #sh-about .sh-story-copy p {
+    font-size: 1rem;
+    color: var(--sh-muted);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  #sh-about .sh-story-copy p:last-child {
+    margin-bottom: 0;
+  }
+
+  #sh-about .sh-story-copy strong {
+    color: var(--sh-ink);
+    font-weight: 600;
+  }
+
+  /* ============================================================
+     OUR VALUES
+  ============================================================ */
+  #sh-about .sh-values {
+    background: var(--sh-cream);
+  }
+
+  #sh-about .sh-values-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  #sh-about .sh-values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  #sh-about .sh-value-card {
+    background: var(--sh-paper);
+    border-radius: var(--sh-radius);
+    padding: 2rem;
+    border-top: 4px solid var(--sh-orange);
+    box-shadow: 0 2px 16px rgba(18,44,61,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  #sh-about .sh-value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(18,44,61,0.12);
+  }
+
+  #sh-about .sh-value-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(243,139,73,0.1);
+    border-radius: var(--sh-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  #sh-about .sh-value-icon svg {
+    width: 26px;
+    height: 26px;
+    color: var(--sh-orange);
+    stroke: var(--sh-orange);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #sh-about .sh-value-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--sh-navy);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  #sh-about .sh-value-card p {
+    font-size: 0.92rem;
+    color: var(--sh-muted);
+    line-height: 1.7;
+  }
+
+  /* ============================================================
+     CREDENTIALS
+  ============================================================ */
+  #sh-about .sh-credentials {
+    background: var(--sh-paper);
+  }
+
+  #sh-about .sh-credentials-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  #sh-about .sh-creds-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  #sh-about .sh-cred-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border: 2px solid rgba(18,44,61,0.09);
+    border-radius: var(--sh-radius);
+    background: var(--sh-cream);
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+
+  #sh-about .sh-cred-badge:hover {
+    border-color: var(--sh-orange);
+    box-shadow: 0 6px 24px rgba(243,139,73,0.12);
+  }
+
+  #sh-about .sh-cred-icon {
+    width: 72px;
+    height: 72px;
+    background: var(--sh-navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  #sh-about .sh-cred-icon svg {
+    width: 34px;
+    height: 34px;
+    stroke: var(--sh-orange);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #sh-about .sh-cred-badge h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sh-navy);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  #sh-about .sh-cred-badge p {
+    font-size: 0.85rem;
+    color: var(--sh-muted);
+  }
+
+  /* ============================================================
+     MEET THE TEAM
+  ============================================================ */
+  #sh-about .sh-team {
+    background: var(--sh-cream);
+  }
+
+  #sh-about .sh-team-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  #sh-about .sh-team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  #sh-about .sh-team-card {
+    background: var(--sh-paper);
+    border-radius: var(--sh-radius);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(18,44,61,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  #sh-about .sh-team-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(18,44,61,0.12);
+  }
+
+  #sh-about .sh-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--sh-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sh-paper);
+    letter-spacing: -0.02em;
+    border: 4px solid rgba(243,139,73,0.25);
+  }
+
+  #sh-about .sh-team-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sh-navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.2rem;
+  }
+
+  #sh-about .sh-team-role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sh-orange);
+    margin-bottom: 1rem;
+  }
+
+  #sh-about .sh-team-card p {
+    font-size: 0.9rem;
+    color: var(--sh-muted);
+    line-height: 1.75;
+  }
+
+  /* ============================================================
+     CTA STRIP
+  ============================================================ */
+  #sh-about .sh-cta-strip {
+    background: var(--sh-orange);
+    padding: 4rem 5%;
+    text-align: center;
+  }
+
+  #sh-about .sh-cta-strip h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--sh-paper);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.6rem;
+  }
+
+  #sh-about .sh-cta-strip p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+  }
+
+  #sh-about .sh-btn {
+    display: inline-block;
+    padding: 0.85rem 2.2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: var(--sh-radius);
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+
+  #sh-about .sh-btn-white {
+    background: var(--sh-paper);
+    color: var(--sh-orange);
+    border-color: var(--sh-paper);
+  }
+
+  #sh-about .sh-btn-white:hover {
+    background: transparent;
+    color: var(--sh-paper);
+    border-color: var(--sh-paper);
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  #sh-about .sh-footer {
+    background: var(--sh-navy-dark);
+    padding: 4rem 5% 2rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  #sh-about .sh-footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  #sh-about .sh-footer-logo {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--sh-paper);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  #sh-about .sh-footer-logo span {
+    color: var(--sh-orange);
+  }
+
+  #sh-about .sh-footer-col p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  #sh-about .sh-footer-col h4 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sh-paper);
+    margin-bottom: 1rem;
+  }
+
+  #sh-about .sh-footer-col ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  #sh-about .sh-footer-col ul li a {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    transition: color 0.2s;
+  }
+
+  #sh-about .sh-footer-col ul li a:hover {
+    color: var(--sh-orange);
+  }
+
+  #sh-about .sh-footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.88rem;
+  }
+
+  #sh-about .sh-footer-contact-item svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    stroke: var(--sh-orange);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #sh-about .sh-footer-bottom {
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 900px) {
+    #sh-about .sh-story-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    #sh-about .sh-creds-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    #sh-about .sh-team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    #sh-about .sh-footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    #sh-about .sh-nav-links { display: none; }
+    #sh-about .sh-hamburger { display: flex; }
+
+    #sh-about .sh-values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #sh-about .sh-team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #sh-about .sh-creds-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #sh-about .sh-footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    #sh-about .sh-section {
+      padding: 3.5rem 5%;
+    }
+  }
+</style>
+
+<!-- ============================================================
+     ROOT WRAPPER
+============================================================ -->
+<div id="sh-about">
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="sh-header" id="shHeader">
+    <!-- Top bar -->
+    <div class="sh-topbar">
+      <p>Auckland's trusted residential builder &nbsp;|&nbsp; Email us: <a href="mailto:info@sunshinehomeslimited.co.nz">info@sunshinehomeslimited.co.nz</a></p>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="sh-navbar">
+      <div class="sh-logo">
+        <a href="/">Sunshine<span>Homes</span></a>
+      </div>
+
+      <ul class="sh-nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about" class="active">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/our-projects">Our Projects</a></li>
+        <li><a href="/contact" class="sh-nav-cta">Get a Free Quote</a></li>
+      </ul>
+
+      <button class="sh-hamburger" id="shHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile nav -->
+    <div class="sh-mobile-nav" id="shMobileNav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/our-projects">Our Projects</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="sh-hero">
+    <div class="sh-hero-inner">
+      <div class="sh-breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep">›</span>
+        <span class="current">About</span>
+      </div>
+      <h1>About <em>Sunshine Homes</em></h1>
+      <div class="sh-hero-bar"></div>
+      <p class="sh-hero-tagline">Building Auckland families' dreams since 2014</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUR STORY
+  ============================================================ -->
+  <section class="sh-section sh-story">
+    <div class="sh-container">
+      <div class="sh-story-grid">
+
+        <!-- Timeline (left column) -->
+        <div class="sh-timeline">
+          <div class="sh-timeline-item">
+            <div class="sh-timeline-dot"></div>
+            <div class="sh-timeline-year">2014</div>
+            <div class="sh-timeline-text">Founded in South Auckland with a vision to build quality homes for everyday Kiwi families.</div>
+          </div>
+          <div class="sh-timeline-item">
+            <div class="sh-timeline-dot"></div>
+            <div class="sh-timeline-year">2017</div>
+            <div class="sh-timeline-text">Completed our 10th home and gained Master Builder accreditation — a milestone that cemented our commitment to excellence.</div>
+          </div>
+          <div class="sh-timeline-item">
+            <div class="sh-timeline-dot"></div>
+            <div class="sh-timeline-year">2020</div>
+            <div class="sh-timeline-text">Expanded our services to include full property renovations, helping Auckland homeowners transform their existing spaces.</div>
+          </div>
+          <div class="sh-timeline-item">
+            <div class="sh-timeline-dot"></div>
+            <div class="sh-timeline-year">2024</div>
+            <div class="sh-timeline-text">50+ homes built across Auckland — and we're just getting started on the next chapter.</div>
+          </div>
+        </div>
+
+        <!-- Story copy (right column) -->
+        <div class="sh-story-copy">
+          <p class="sh-section-label">Our Story</p>
+          <h2 class="sh-section-title">Our Story</h2>
+          <p>
+            <strong>Sunshine Homes Limited</strong> was born from a simple belief: every Auckland family deserves a well-built, beautiful home delivered on time and within budget. Founded in South Auckland in 2014, we started as a small, family-owned operation and have grown into one of the region's most trusted residential construction companies.
+          </p>
+          <p>
+            We remain proudly <strong>family-owned and locally operated</strong>. That means every project receives the personal attention it deserves — from the first consultation right through to the handover of your keys. We're not a volume builder; we're a partner in building the place you'll call home.
+          </p>
+          <p>
+            Quality is never negotiated at Sunshine Homes. We work only with <strong>accredited trades, premium materials, and proven methods</strong> — because the homes we build represent not just our clients' biggest investments, but their families' futures. When you choose Sunshine Homes, you choose a team that genuinely cares about getting it right.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUR VALUES
+  ============================================================ -->
+  <section class="sh-section sh-values">
+    <div class="sh-container">
+      <div class="sh-values-header">
+        <p class="sh-section-label">What Drives Us</p>
+        <h2 class="sh-section-title">What We Stand For</h2>
+      </div>
+
+      <div class="sh-values-grid">
+
+        <!-- Quality Craftsmanship -->
+        <div class="sh-value-card">
+          <div class="sh-value-icon">
+            <!-- Hammer icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 12l-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0-.83-.83-.83-2.17 0-3L12 9" stroke-width="2"/>
+              <path d="M17.64 15L22 10.64" stroke-width="2"/>
+              <path d="M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L15.5 4.3c-.31-.31-.76-.46-1.21-.42l-3.29.29" stroke-width="2"/>
+              <path d="M9.83 7.17l1.25 1.25c.6.6.93 1.4.93 2.25v.86" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Quality Craftsmanship</h3>
+          <p>We hold every build to the highest standard of workmanship, from foundations to finishing touches. Great materials and skilled hands make homes that last for generations.</p>
+        </div>
+
+        <!-- Full Transparency -->
+        <div class="sh-value-card">
+          <div class="sh-value-icon">
+            <!-- Eye icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3>Full Transparency</h3>
+          <p>No surprises, no hidden costs. We keep clients informed at every stage with clear communication and honest progress updates. Your trust is our most valuable asset.</p>
+        </div>
+
+        <!-- Community Focus -->
+        <div class="sh-value-card">
+          <div class="sh-value-icon">
+            <!-- Home icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>Community Focus</h3>
+          <p>We are proud South Aucklanders building homes in the communities we live in. Supporting local suppliers and trades is central to how we do business every day.</p>
+        </div>
+
+        <!-- On-Time Delivery -->
+        <div class="sh-value-card">
+          <div class="sh-value-icon">
+            <!-- Clock icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>On-Time Delivery</h3>
+          <p>We respect that your time and plans matter. Rigorous project scheduling and proactive problem-solving means we consistently deliver homes on schedule, every time.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CREDENTIALS
+  ============================================================ -->
+  <section class="sh-section sh-credentials">
+    <div class="sh-container">
+      <div class="sh-credentials-header">
+        <p class="sh-section-label">Trusted & Accredited</p>
+        <h2 class="sh-section-title">Our Credentials</h2>
+      </div>
+
+      <div class="sh-creds-grid">
+
+        <!-- Master Builder -->
+        <div class="sh-cred-badge">
+          <div class="sh-cred-icon">
+            <!-- Award / shield icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <h3>Master Builder Accredited</h3>
+          <p>Member of the New Zealand Master Builders Federation since 2017.</p>
+        </div>
+
+        <!-- Licensed Building Practitioner -->
+        <div class="sh-cred-badge">
+          <div class="sh-cred-icon">
+            <!-- Clipboard / licence icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3>Licensed Building Practitioner</h3>
+          <p>All our lead builders are LBP-licensed under the Building Act 2004.</p>
+        </div>
+
+        <!-- Experience -->
+        <div class="sh-cred-badge">
+          <div class="sh-cred-icon">
+            <!-- Star / experience icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3>10+ Years Auckland Experience</h3>
+          <p>A decade of delivering premium residential builds across the Auckland region.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MEET THE TEAM
+  ============================================================ -->
+  <section class="sh-section sh-team">
+    <div class="sh-container">
+      <div class="sh-team-header">
+        <p class="sh-section-label">The People Behind Your Home</p>
+        <h2 class="sh-section-title">Meet the Team</h2>
+      </div>
+
+      <div class="sh-team-grid">
+
+        <!-- Michael Sione -->
+        <div class="sh-team-card">
+          <div class="sh-avatar">MS</div>
+          <h3>Michael Sione</h3>
+          <div class="sh-team-role">Founder &amp; Director</div>
+          <p>Michael founded Sunshine Homes with a passion for quality construction and a deep commitment to his South Auckland community. With over 18 years of hands-on building experience, he personally oversees every project to ensure it meets the Sunshine Homes standard.</p>
+        </div>
+
+        <!-- David Park -->
+        <div class="sh-team-card">
+          <div class="sh-avatar">DP</div>
+          <h3>David Park</h3>
+          <div class="sh-team-role">Site Manager</div>
+          <p>David brings 12 years of on-site construction management expertise, keeping every build running safely, efficiently, and on schedule. He is the day-to-day backbone of every Sunshine Homes project, coordinating trades and solving challenges before they become problems.</p>
+        </div>
+
+        <!-- Emma Wilson -->
+        <div class="sh-team-card">
+          <div class="sh-avatar">EW</div>
+          <h3>Emma Wilson</h3>
+          <div class="sh-team-role">Client Relations</div>
+          <p>Emma is the first and friendliest point of contact for all Sunshine Homes clients. She guides homeowners through every stage of the build journey — from initial consultation to handover — ensuring clear communication and a stress-free experience throughout.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA STRIP
+  ============================================================ -->
+  <section class="sh-cta-strip">
+    <h2>Let's Build Together</h2>
+    <p>Get in touch for a free consultation.</p>
+    <a href="/contact" class="sh-btn sh-btn-white">Get a Quote</a>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="sh-footer">
+    <div class="sh-footer-grid">
+
+      <!-- Col 1 – Brand -->
+      <div class="sh-footer-col">
+        <div class="sh-footer-logo">Sunshine<span>Homes</span> Limited</div>
+        <p>Auckland's trusted residential builder. Quality homes, transparent process, on-time delivery — since 2014.</p>
+      </div>
+
+      <!-- Col 2 – Quick Links -->
+      <div class="sh-footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/our-projects">Our Projects</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 – Services -->
+      <div class="sh-footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services">New Home Builds</a></li>
+          <li><a href="/services">Home Renovations</a></li>
+          <li><a href="/services">Extensions &amp; Additions</a></li>
+          <li><a href="/services">Property Services</a></li>
+          <li><a href="/services">Project Management</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4 – Contact -->
+      <div class="sh-footer-col">
+        <h4>Contact Us</h4>
+        <div class="sh-footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span><a href="mailto:info@sunshinehomeslimited.co.nz" style="color:inherit;">info@sunshinehomeslimited.co.nz</a></span>
+        </div>
+        <div class="sh-footer-contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Auckland, New Zealand</span>
+        </div>
+        <div class="sh-footer-contact-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Mon–Fri, 8am–5pm</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sh-footer-bottom">
+      <p>&copy; 2024 Sunshine Homes Limited. All rights reserved. | <a href="/privacy" style="color:rgba(255,255,255,0.35);">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+</div><!-- /#sh-about -->
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Hide Squarespace native header
+  ------------------------------------------------------------------ */
+  function hideSQSHeader () {
+    var selectors = [
+      '#header',
+      '.Header',
+      '.header-inner',
+      'header.Header',
+      '[data-section-type="header"]'
+    ];
+    selectors.forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (el) el.style.display = 'none';
+    });
+  }
+  hideSQSHeader();
+  window.addEventListener('load', hideSQSHeader);
+
+  /* ------------------------------------------------------------------
+     Hamburger toggle
+  ------------------------------------------------------------------ */
+  var hamburger = document.getElementById('shHamburger');
+  var mobileNav = document.getElementById('shMobileNav');
+
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     Smooth scroll for anchor links
+  ------------------------------------------------------------------ */
+  document.querySelectorAll('#sh-about a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ------------------------------------------------------------------
+     Scroll-reveal animation (IntersectionObserver)
+  ------------------------------------------------------------------ */
+  if ('IntersectionObserver' in window) {
+    var revealStyle = document.createElement('style');
+    revealStyle.textContent = [
+      '#sh-about .sh-reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}',
+      '#sh-about .sh-reveal.visible{opacity:1;transform:none}'
+    ].join('');
+    document.head.appendChild(revealStyle);
+
+    var revealTargets = document.querySelectorAll([
+      '#sh-about .sh-value-card',
+      '#sh-about .sh-cred-badge',
+      '#sh-about .sh-team-card',
+      '#sh-about .sh-timeline-item',
+      '#sh-about .sh-story-copy p'
+    ].join(','));
+
+    revealTargets.forEach(function (el) { el.classList.add('sh-reveal'); });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealTargets.forEach(function (el) { observer.observe(el); });
+  }
+
+})();
+</script>
