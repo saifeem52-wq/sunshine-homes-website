@@ -138,14 +138,34 @@ body:has(#sh-home) .sqs-block-code:has(#sh-home) .sqs-block-content { padding:0 
 #sh-home .sh-process-step h3 { margin:18px 0 10px; font-size:20px; font-weight:800; }
 #sh-home .sh-process-step p { color:var(--sh-muted); font-size:14px; line-height:1.75; }
 
-/* TESTIMONIALS */
-#sh-home .sh-testimonials { background:var(--sh-paper); }
-#sh-home .sh-test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-#sh-home .sh-test-card { background:var(--sh-cream); padding:32px 28px; border-radius:3px; border-left:4px solid var(--sh-orange); display:flex; flex-direction:column; justify-content:space-between; gap:20px; }
-#sh-home .sh-test-stars { color:var(--sh-orange); font-size:16px; letter-spacing:2px; }
-#sh-home .sh-test-quote { font-size:15px; color:var(--sh-ink); line-height:1.75; font-style:italic; }
-#sh-home .sh-test-author strong { display:block; font-size:14px; font-weight:800; color:var(--sh-navy); }
-#sh-home .sh-test-author span { font-size:12px; color:var(--sh-muted); }
+/* QUALITY & HEALTH AND SAFETY CERTIFICATES */
+#sh-home .sh-certificates { background:var(--sh-paper); }
+#sh-home .sh-cert-intro { max-width:740px; margin-top:16px; }
+#sh-home .sh-cert-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; align-items:stretch; }
+#sh-home .sh-cert-card { background:var(--sh-cream); border:1px solid var(--sh-line); border-top:4px solid var(--sh-orange); border-radius:4px; display:flex; flex-direction:column; overflow:hidden; transition:transform .28s ease, box-shadow .28s ease; }
+#sh-home .sh-cert-card:hover { transform:translateY(-5px); box-shadow:0 18px 38px rgba(18,44,61,.11); }
+#sh-home .sh-cert-preview { position:relative; background:#fff; padding:22px; height:360px; display:flex; align-items:center; justify-content:center; border-bottom:1px solid var(--sh-line); cursor:zoom-in; overflow:hidden; }
+#sh-home .sh-cert-preview img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; box-shadow:0 6px 20px rgba(12,33,48,.10); transition:transform .35s ease; }
+#sh-home .sh-cert-preview:hover img { transform:scale(1.03); }
+#sh-home .sh-cert-zoom { position:absolute; right:14px; bottom:14px; background:rgba(18,44,61,.86); color:#fff; font-size:11px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; padding:6px 11px; border-radius:3px; pointer-events:none; transition:background .2s; }
+#sh-home .sh-cert-preview:hover .sh-cert-zoom { background:var(--sh-orange); color:var(--sh-navy); }
+#sh-home .sh-cert-body { padding:26px 26px 28px; display:flex; flex-direction:column; flex:1; justify-content:space-between; gap:18px; }
+#sh-home .sh-cert-badge { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.3px; color:var(--sh-orange); margin-bottom:8px; }
+#sh-home .sh-cert-body h3 { font-size:21px; font-weight:800; color:var(--sh-navy); line-height:1.25; letter-spacing:-.4px; margin-bottom:10px; }
+#sh-home .sh-cert-body p { font-size:14px; color:var(--sh-muted); line-height:1.7; }
+#sh-home .sh-cert-meta { list-style:none; padding:12px 0 0; margin:12px 0 0; border-top:1px solid rgba(18,44,61,.09); font-size:12.5px; color:var(--sh-ink); display:flex; flex-direction:column; gap:5px; }
+#sh-home .sh-cert-meta strong { color:var(--sh-navy); font-weight:700; }
+#sh-home .sh-cert-actions { display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:6px; }
+#sh-home .sh-cert-link { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:1.1px; color:var(--sh-navy); transition:color .2s; }
+#sh-home .sh-cert-link:hover { color:var(--sh-orange); }
+
+/* CERTIFICATE LIGHTBOX MODAL */
+#sh-home .sh-cert-modal { position:fixed; inset:0; z-index:99999; background:rgba(9,24,35,.88); display:none; align-items:center; justify-content:center; padding:28px; backdrop-filter:blur(4px); }
+#sh-home .sh-cert-modal.is-open { display:flex; }
+#sh-home .sh-cert-modal-inner { position:relative; max-width:960px; max-height:90vh; background:#fff; padding:18px; border-radius:4px; box-shadow:0 25px 60px rgba(0,0,0,.45); display:flex; flex-direction:column; align-items:center; }
+#sh-home .sh-cert-modal-inner img { max-width:100%; max-height:calc(90vh - 80px); width:auto; height:auto; object-fit:contain; }
+#sh-home .sh-cert-modal-bar { width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:12px; margin-top:10px; border-top:1px solid var(--sh-line); font-size:13px; font-weight:700; color:var(--sh-navy); }
+#sh-home .sh-cert-modal-close { position:absolute; top:-14px; right:-14px; width:38px; height:38px; border-radius:50%; border:0; background:var(--sh-orange); color:var(--sh-navy); font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 16px rgba(0,0,0,.3); }
 
 /* CTA / FOOTER */
 #sh-home .sh-cta { position:relative; isolation:isolate; background:var(--sh-navy-dark); color:#fff; padding:96px 0; }
@@ -175,7 +195,7 @@ body:has(#sh-home) .sqs-block-code:has(#sh-home) .sqs-block-content { padding:0 
   #sh-home .sh-navlinks.is-open { display:flex; }
   #sh-home .sh-navlinks > a { font-size:15px; padding:13px 8px; border-bottom:1px solid #e8edef; }
   #sh-home .sh-stats-grid { grid-template-columns:repeat(2,1fr); }
-  #sh-home .sh-about-grid, #sh-home .sh-service-grid, #sh-home .sh-test-grid { grid-template-columns:1fr; gap:32px; }
+  #sh-home .sh-about-grid, #sh-home .sh-service-grid, #sh-home .sh-cert-grid { grid-template-columns:1fr; gap:32px; }
   #sh-home .sh-process-grid { grid-template-columns:1fr 1fr; }
   #sh-home .sh-footer-upper { grid-template-columns:1fr; gap:36px; }
   #sh-home .sh-project-row { grid-template-columns:40px 1fr 40px; }
@@ -336,25 +356,94 @@ body:has(#sh-home) .sqs-block-code:has(#sh-home) .sqs-block-content { padding:0 
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="sh-section sh-testimonials">
+  <!-- QUALITY & HEALTH AND SAFETY CERTIFICATES -->
+  <section class="sh-section sh-certificates" id="quality-safety">
     <div class="sh-wrap">
-      <div class="sh-section-heading"><span class="sh-eyebrow">Client Stories</span><h2 class="sh-title">What Auckland homeowners say.</h2></div>
-      <div class="sh-test-grid">
-        <div class="sh-test-card">
-          <div class="sh-test-stars">★★★★★</div>
-          <p class="sh-test-quote">"Sunshine Homes made building our home a smooth, stress-free experience. Communication was clear throughout and the craftsmanship is outstanding."</p>
-          <div class="sh-test-author"><strong>James T.</strong><span>Auckland Homeowner</span></div>
-        </div>
-        <div class="sh-test-card">
-          <div class="sh-test-stars">★★★★★</div>
-          <p class="sh-test-quote">"From the first consultation we knew we were in good hands. Professional, punctual, and genuine attention to detail on our renovation."</p>
-          <div class="sh-test-author"><strong>Sarah M.</strong><span>East Auckland</span></div>
-        </div>
-        <div class="sh-test-card">
-          <div class="sh-test-stars">★★★★★</div>
-          <p class="sh-test-quote">"Transparent pricing, no surprises, and delivered right on schedule. Highly recommend the Sunshine Homes team for any residential build."</p>
-          <div class="sh-test-author"><strong>Michael K.</strong><span>South Auckland</span></div>
+      <div class="sh-section-heading">
+        <span class="sh-eyebrow">Accreditations &amp; Prequalifications</span>
+        <h2 class="sh-title">Our commitment to Quality and Health and Safety</h2>
+        <p class="sh-body sh-cert-intro">Sunshine Homes Limited maintains independent industry accreditations and health &amp; safety prequalifications across New Zealand, ensuring every residential build meets rigorous quality and site safety standards.</p>
+      </div>
+      <div class="sh-cert-grid">
+        <!-- Certificate 1: Registered Master Builders -->
+        <article class="sh-cert-card">
+          <div class="sh-cert-preview" role="button" tabindex="0" aria-label="Enlarge Registered Master Builders Certificate" data-cert-img="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/registered-master-builders-certificate.jpg" data-cert-pdf="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/registered-master-builders-certificate.pdf" data-cert-title="Registered Master Builders Certificate — Member No [49223]">
+            <img src="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/registered-master-builders-certificate.jpg" alt="Sunshine Homes Limited Registered Master Builders Certificate Member No 49223" loading="lazy">
+            <span class="sh-cert-zoom">Click to Enlarge</span>
+          </div>
+          <div class="sh-cert-body">
+            <div>
+              <span class="sh-cert-badge">★ Building Excellence</span>
+              <h3>Registered Master Builders</h3>
+              <p>Certified member of the Registered Master Builders Association of New Zealand Incorporated, meeting strict workmanship and registration board standards.</p>
+              <ul class="sh-cert-meta">
+                <li><strong>Designation:</strong> Registered Master Builder</li>
+                <li><strong>Member Number:</strong> 49223</li>
+                <li><strong>Body:</strong> RMBA of NZ Incorporated</li>
+              </ul>
+            </div>
+            <div class="sh-cert-actions">
+              <a class="sh-cert-link" href="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/registered-master-builders-certificate.pdf" target="_blank" rel="noopener">View Official Certificate (PDF) <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Certificate 2: +IMPAC PREQUAL -->
+        <article class="sh-cert-card">
+          <div class="sh-cert-preview" role="button" tabindex="0" aria-label="Enlarge IMPAC PREQUAL Certificate" data-cert-img="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/impac-prequal-certificate.jpg" data-cert-pdf="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/impac-prequal-certificate.pdf" data-cert-title="+IMPAC PREQUAL Certificate — 5-Star Assessment Rating (85%)">
+            <img src="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/impac-prequal-certificate.jpg" alt="Sunshine Homes Limited IMPAC PREQUAL Health and Safety Certificate 5 Star Rating 85%" loading="lazy">
+            <span class="sh-cert-zoom">Click to Enlarge</span>
+          </div>
+          <div class="sh-cert-body">
+            <div>
+              <span class="sh-cert-badge">★★★★★ 5-Star Assessment • 85% Score</span>
+              <h3>+IMPAC PREQUAL Certified</h3>
+              <p>Independently assessed and prequalified for health and safety management systems in residential construction.</p>
+              <ul class="sh-cert-meta">
+                <li><strong>Category:</strong> Construction (Residential) Category 2</li>
+                <li><strong>Overall Score:</strong> 85% (5-Star Rating)</li>
+                <li><strong>Valid:</strong> 16 Sep 2025 – 16 Sep 2027</li>
+              </ul>
+            </div>
+            <div class="sh-cert-actions">
+              <a class="sh-cert-link" href="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/impac-prequal-certificate.pdf" target="_blank" rel="noopener">View Official Certificate (PDF) <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Certificate 3: Totika Supplier Listing -->
+        <article class="sh-cert-card">
+          <div class="sh-cert-preview" role="button" tabindex="0" aria-label="Enlarge Totika Supplier Listing Certificate" data-cert-img="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/totika-supplier-certificate.jpg" data-cert-pdf="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/totika-supplier-certificate.pdf" data-cert-title="Tōtika Supplier Listing Certificate — Performing (CAT 2)">
+            <img src="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/totika-supplier-certificate.jpg" alt="Sunshine Homes Limited Totika Supplier Listing Certificate CAT 2 Performing" loading="lazy">
+            <span class="sh-cert-zoom">Click to Enlarge</span>
+          </div>
+          <div class="sh-cert-body">
+            <div>
+              <span class="sh-cert-badge">✓ Performing Status • 79% Score</span>
+              <h3>Tōtika Supplier Listing</h3>
+              <p>Listed on New Zealand's national Construction Health &amp; Safety NZ (CHASNZ) Tōtika prequalification register as a performing Category 2 contractor.</p>
+              <ul class="sh-cert-meta">
+                <li><strong>Contractor Category:</strong> CAT 2 (Performing)</li>
+                <li><strong>NZBN:</strong> 9429041454732</li>
+                <li><strong>Expiry Date:</strong> 27/01/2027</li>
+              </ul>
+            </div>
+            <div class="sh-cert-actions">
+              <a class="sh-cert-link" href="https://saifeem52-wq.github.io/sunshine-homes-website/assets/certificates/totika-supplier-certificate.pdf" target="_blank" rel="noopener">View Official Certificate (PDF) <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Certificate Lightbox Modal -->
+    <div class="sh-cert-modal" id="sh-cert-modal" role="dialog" aria-modal="true" aria-label="Certificate Preview">
+      <div class="sh-cert-modal-inner">
+        <button type="button" class="sh-cert-modal-close" aria-label="Close preview">&times;</button>
+        <img id="sh-cert-modal-img" src="" alt="">
+        <div class="sh-cert-modal-bar">
+          <span id="sh-cert-modal-title"></span>
+          <a id="sh-cert-modal-pdf" class="sh-cert-link" href="#" target="_blank" rel="noopener">Open Full PDF <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>
@@ -429,5 +518,27 @@ body:has(#sh-home) .sqs-block-code:has(#sh-home) .sqs-block-content { padding:0 
   if(prev)prev.addEventListener('click',function(){showSlide(index-1);startTimer();});
   if(next)next.addEventListener('click',function(){showSlide(index+1);startTimer();});
   showSlide(0);startTimer();
+
+  var modal=root.querySelector('#sh-cert-modal');
+  var modalImg=root.querySelector('#sh-cert-modal-img');
+  var modalTitle=root.querySelector('#sh-cert-modal-title');
+  var modalPdf=root.querySelector('#sh-cert-modal-pdf');
+  var modalClose=root.querySelector('.sh-cert-modal-close');
+  function closeCertModal(){if(!modal)return;modal.classList.remove('is-open');}
+  root.querySelectorAll('.sh-cert-preview').forEach(function(el){
+    function openCert(){
+      if(!modal||!modalImg)return;
+      modalImg.src=el.getAttribute('data-cert-img')||'';
+      modalImg.alt=el.getAttribute('data-cert-title')||'Certificate';
+      if(modalTitle)modalTitle.textContent=el.getAttribute('data-cert-title')||'';
+      if(modalPdf)modalPdf.href=el.getAttribute('data-cert-pdf')||'#';
+      modal.classList.add('is-open');
+    }
+    el.addEventListener('click',openCert);
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openCert();}});
+  });
+  if(modalClose)modalClose.addEventListener('click',closeCertModal);
+  if(modal)modal.addEventListener('click',function(e){if(e.target===modal)closeCertModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCertModal();});
 })();
 </script>
